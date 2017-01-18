@@ -11,6 +11,11 @@ using namespace std;
 
 #include <GL/glew.h>
 
+// Include GLM
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+using namespace glm;
+
 #include "shader.h"
 
 GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path){
