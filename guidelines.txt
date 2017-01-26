@@ -1,0 +1,14 @@
+
+  # BUFFER DATA
+  static const GLfloat triangle_vertex[] = { 
+    -1.0f, -1.0f, 0.0f,
+    1.0f, -1.0f, 0.0f,
+    0.0f,  1.0f, 1.0f,
+  };
+
+  GLuint trianglebufferID;
+  glGenBuffers(1, &trianglebufferID);
+  glBindBuffer(GL_ARRAY_BUFFER, trianglebufferID);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(triangle_vertex), triangle_vertex, GL_STATIC_DRAW);
+
+
