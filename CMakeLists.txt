@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.7)
 
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
@@ -7,11 +7,11 @@ set(GLFW_SOURCE_DIR "external/glfw")
 set(GLM_SOURCE_DIR "external/glm")
 
 # Building only the GLFW lib
-set(BUILD_SHARED_LIBS OFF CACHE BOOL "")
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "")
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "")
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "")
-set(GLFW_INSTALL OFF CACHE BOOL "")
+#set(BUILD_SHARED_LIBS OFF CACHE BOOL "")
+#set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "")
+#set(GLFW_BUILD_TESTS OFF CACHE BOOL "")
+#set(GLFW_BUILD_DOCS OFF CACHE BOOL "")
+#set(GLFW_INSTALL OFF CACHE BOOL "")
 
 add_subdirectory(${GLFW_SOURCE_DIR} ${GLEW_SOURCE_DIR})
 
@@ -24,9 +24,9 @@ include_directories(${GLFW_SOURCE_DIR}/include
 
 file(GLOB_RECURSE SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 add_executable(cubeZero main.cpp ${SRC_FILES})
+target_link_libraries(cubeZero glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 
 #add_executable(cubeZero main.cpp)
-target_link_libraries(cubeZero glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 
 #if (APPLE)
   #set(APP_NAME CubeZero)

@@ -8,6 +8,8 @@
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+//#include "external/glm/glm/glm.hpp"
+//#include "external/glm/gtc/matrix_transform.hpp"
 using namespace glm;
 
 #include "controls.hpp"
@@ -56,48 +58,30 @@ void computeMatricesFromInputs(GLFWwindow* window){
   //glfwSetCursorPos(window, (float)1024/2, (float)768/2);
 
 	// Compute new orientation
-	//horizontalAngle += mouseSpeed * float(1024/2 - x );
+    horizontalAngle += mouseSpeed * float(1024/2 - x );
 	//verticalAngle   += mouseSpeed * float( 768/2 - y );
-	//verticalAngle   = 0.0f;
+    verticalAngle   = 0.0f;
 
 	// Reset mouse position for next frame
 
-	// Direction : Spherical coordinates to Cartesian coordinates conversion
-	//glm::vec3 direction(
-		//cos(verticalAngle) * sin(horizontalAngle), 
-		//sin(verticalAngle),
-		//cos(verticalAngle) * cos(horizontalAngle)
-	//);
-	
-	
-	//// Up vector
-	//glm::vec3 up = glm::cross( right, direction );
 
 	float FoV = initialFoV;// - 5 * glfwGetMouseWheel(); // Now GLFW 3 requires setting up a callback for this. It's a bit too complicated for this beginner's tutorial, so it's disabled instead.
 
   //print(horizontalAngle);
 	// Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
 	ProjectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
-    glm::rotate(glm::mat4(), 0.5f, glm::vec3(0, 1, 0));
-    //glm::translate(glm::mat4(), glm::vec3(2+horizontalAngle, 0, 0))*
+  //float eye = 6*cos(phi)*sin(theta);
+  //float eye = 6*cos(theta);
 
-	//if (glfwGetKey( window, GLFW_KEY_LEFT ) == GLFW_PRESS){
-		//position -= right * deltaTime * speed;
-	//}
-	// Camera matrix
-	//ViewMatrix       = glm::lookAt(
-								//position,           // Camera is here
-								//position+direction, // and looks here : at the same position, plus "direction"
-								//up                  // Head is up (set to 0,-1,0 to look upside-down)
-							 //);
-
-  float eyeX = 6*cos(phi)*sin(theta);
-  float eyeY = 6*sin(phi)*sin(theta);
-  float eyeZ = 6*cos(theta);
+  float radius = 20.0f;
+  float X = sin(theta) * radius;
+  float Z = cos(theta) * radius;
+  float Y = 3;
 
   ViewMatrix = 
     //glm::rotate(glm::mat4(), 0.5f, glm::vec3(0, 1, 0)) * 
-    glm::lookAt( glm::vec3(eyeX, eyeY, eyeZ), glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ));
+    glm::lookAt( glm::vec3(X, Y, Z), glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ));
+  //ViewMatrix = glm::translate(ViewMatrix, glm::vec3(X, Y, Z));
 	// For the next frame, the "last time" will be "now"
 	lastTime = currentTime;
 

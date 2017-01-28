@@ -1,0 +1,422 @@
+[
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/main.cpp.o -c /Users/daneryl/workspace/cubeZero/main.cpp",
+  "file": "/Users/daneryl/workspace/cubeZero/main.cpp"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/src/controls.cpp.o -c /Users/daneryl/workspace/cubeZero/src/controls.cpp",
+  "file": "/Users/daneryl/workspace/cubeZero/src/controls.cpp"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/src/shader.cpp.o -c /Users/daneryl/workspace/cubeZero/src/shader.cpp",
+  "file": "/Users/daneryl/workspace/cubeZero/src/shader.cpp"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/src/test.cpp.o -c /Users/daneryl/workspace/cubeZero/src/test.cpp",
+  "file": "/Users/daneryl/workspace/cubeZero/src/test.cpp"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/src/util.cpp.o -c /Users/daneryl/workspace/cubeZero/src/util.cpp",
+  "file": "/Users/daneryl/workspace/cubeZero/src/util.cpp"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/context.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/context.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/context.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/init.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/init.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/init.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/input.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/input.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/input.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/monitor.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/monitor.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/monitor.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/vulkan.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/vulkan.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/vulkan.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/window.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/window.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/window.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/cocoa_init.m.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_init.m",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_init.m"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/cocoa_joystick.m.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_joystick.m",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_joystick.m"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/cocoa_monitor.m.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_monitor.m",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_monitor.m"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/cocoa_window.m.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_window.m",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_window.m"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/cocoa_time.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_time.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/cocoa_time.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/posix_tls.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/posix_tls.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/posix_tls.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/nsgl_context.m.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/nsgl_context.m",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/nsgl_context.m"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -D_GLFW_USE_CONFIG_H -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/src -I/Users/daneryl/workspace/cubeZero/build/external/glfw/src   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -fPIC   -Wall -o CMakeFiles/glfw.dir/egl_context.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/src/egl_context.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/src/egl_context.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/heightmap.dir/heightmap.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/examples/heightmap.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/examples/heightmap.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/heightmap.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/wave.dir/wave.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/examples/wave.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/examples/wave.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/wave.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/simple.dir/simple.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/examples/simple.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/examples/simple.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/simple.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/particles.dir/particles.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/examples/particles.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/examples/particles.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/particles.dir/__/deps/tinycthread.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/tinycthread.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/tinycthread.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/particles.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/particles.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/splitview.dir/splitview.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/examples/splitview.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/examples/splitview.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/splitview.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/offscreen.dir/offscreen.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/examples/offscreen.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/examples/offscreen.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/offscreen.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/gears.dir/gears.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/examples/gears.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/examples/gears.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/gears.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/boing.dir/boing.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/examples/boing.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/examples/boing.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/examples",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/boing.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/windows.dir/windows.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/windows.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/windows.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/windows.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/windows.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/title.dir/title.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/title.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/title.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/title.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/timeout.dir/timeout.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/timeout.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/timeout.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/timeout.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/threads.dir/threads.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/threads.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/threads.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/threads.dir/__/deps/tinycthread.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/tinycthread.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/tinycthread.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/threads.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/tearing.dir/tearing.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/tearing.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/tearing.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/tearing.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/tearing.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/joysticks.dir/joysticks.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/joysticks.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/joysticks.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/joysticks.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/gamma.dir/gamma.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/gamma.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/gamma.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/gamma.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/empty.dir/empty.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/empty.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/empty.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/empty.dir/__/deps/tinycthread.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/tinycthread.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/tinycthread.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/empty.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/reopen.dir/reopen.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/reopen.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/reopen.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/reopen.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cursor.dir/cursor.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/cursor.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/cursor.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cursor.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/glfwinfo.dir/glfwinfo.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/glfwinfo.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/glfwinfo.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/glfwinfo.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/glfwinfo.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/monitors.dir/monitors.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/monitors.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/monitors.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/monitors.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/monitors.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/events.dir/events.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/events.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/events.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/events.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/events.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/iconify.dir/iconify.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/iconify.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/iconify.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/iconify.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/iconify.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/sharing.dir/sharing.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/sharing.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/sharing.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/sharing.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/sharing.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/msaa.dir/msaa.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/msaa.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/msaa.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/msaa.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/msaa.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/icon.dir/icon.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/icon.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/icon.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/icon.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/clipboard.dir/clipboard.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/tests/clipboard.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/tests/clipboard.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/clipboard.dir/__/deps/getopt.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/getopt.c"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build/external/glfw/tests",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glfw/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/clipboard.dir/__/deps/glad.c.o   -c /Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c",
+  "file": "/Users/daneryl/workspace/cubeZero/external/glfw/deps/glad.c"
+}
+]
