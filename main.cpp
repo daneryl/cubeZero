@@ -12,7 +12,7 @@
 
 #include "src/shader.h"
 #include "src/controls.hpp"
-#include "src/test.hpp"
+#include "src/cube.hpp"
 
 #define GLSL(src) #src
 
@@ -46,6 +46,8 @@ int main( void )
     // hide triangles which normal is not towards the camera
     glEnable(GL_CULL_FACE);
 
+    //Cube cube = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.0f, 2.2f, 0.0f)));
+
     // Initialize GLEW
     glewExperimental = true; // Needed for core profile
     if (glewInit() != GLEW_OK) {
@@ -68,61 +70,6 @@ int main( void )
     // Create and compile our GLSL program from the shaders
     GLuint programID = LoadShaders( "vertex.shader", "fragment.shader" );
 
-    static const GLfloat cube_vertex[] = {
-        -1.0f,-1.0f,-1.0f, // triangle 1 : begin
-        -1.0f,-1.0f, 1.0f,
-        -1.0f, 1.0f, 1.0f, // triangle 1 : end
-        1.0f, 1.0f,-1.0f, // triangle 2 : begin
-        -1.0f,-1.0f,-1.0f,
-        -1.0f, 1.0f,-1.0f, // triangle 2 : end
-        1.0f,-1.0f, 1.0f,
-        -1.0f,-1.0f,-1.0f,
-        1.0f,-1.0f,-1.0f,
-        1.0f, 1.0f,-1.0f,
-        1.0f,-1.0f,-1.0f,
-        -1.0f,-1.0f,-1.0f,
-        -1.0f,-1.0f,-1.0f,
-        -1.0f, 1.0f, 1.0f,
-        -1.0f, 1.0f,-1.0f,
-        1.0f,-1.0f, 1.0f,
-        -1.0f,-1.0f, 1.0f,
-        -1.0f,-1.0f,-1.0f,
-        -1.0f, 1.0f, 1.0f,
-        -1.0f,-1.0f, 1.0f,
-        1.0f,-1.0f, 1.0f,
-        1.0f, 1.0f, 1.0f,
-        1.0f,-1.0f,-1.0f,
-        1.0f, 1.0f,-1.0f,
-        1.0f,-1.0f,-1.0f,
-        1.0f, 1.0f, 1.0f,
-        1.0f,-1.0f, 1.0f,
-        1.0f, 1.0f, 1.0f,
-        1.0f, 1.0f,-1.0f,
-        -1.0f, 1.0f,-1.0f,
-        1.0f, 1.0f, 1.0f,
-        -1.0f, 1.0f,-1.0f,
-        -1.0f, 1.0f, 1.0f,
-        1.0f, 1.0f, 1.0f,
-        -1.0f, 1.0f, 1.0f,
-        1.0f,-1.0f, 1.0f
-    };
-
-    GLuint cubeBuffer;
-    glGenBuffers(1, &cubeBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, cubeBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(cube_vertex), cube_vertex, GL_STATIC_DRAW);
-
-    GLuint cubeBuffer2;
-    glGenBuffers(1, &cubeBuffer2);
-    glBindBuffer(GL_ARRAY_BUFFER, cubeBuffer2);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(cube_vertex), cube_vertex, GL_STATIC_DRAW);
-
-    // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-    //glm::mat4 Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
-
-    // Or, for an ortho camera :
-    //glm::mat4 Projection = glm::ortho(-10.0f,10.0f,-10.0f,10.0f,0.0f,100.0f); // In world coordinates
-
 
     // Get a handle for our "MVP" uniform
     // Only during the initialisation
@@ -140,6 +87,16 @@ int main( void )
     GLuint colorbuffer;
     glGenBuffers(1, &colorbuffer);
 
+    Cube *cube = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f)), MatrixID);
+    Cube *cube2 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 2.2f, 0.0f)), MatrixID);
+    Cube *cube3 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, -2.2f, 0.0f)), MatrixID);
+    Cube *cube4 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 0.0f, 0.0f)), MatrixID);
+    Cube *cube5 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -2.2f, 0.0f)), MatrixID);
+    Cube *cube6 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, -2.2f, 0.0f)), MatrixID);
+    Cube *cube7 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 0.0f, 0.0f)), MatrixID);
+    Cube *cube8 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 2.2f, 0.0f)), MatrixID);
+    Cube *cube9 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 2.2f, 0.0f)), MatrixID);
+
     do{
         // Enable depth test
         glEnable(GL_DEPTH_TEST);
@@ -153,11 +110,6 @@ int main( void )
         computeMatricesFromInputs(window);
         glm::mat4 Projection = getProjectionMatrix();
         glm::mat4 View = getViewMatrix();
-        glm::mat4 Model2 = glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, 0.0f, 0.0f));
-        glm::mat4 Model3 = glm::translate(glm::mat4(1.0f), glm::vec3(1.2f, 0.0f, 0.0f));
-        // Our ModelViewProjection : multiplication of our 3 matrices
-        glm::mat4 mvp = Projection * View * Model2;
-        glm::mat4 mvp3 = Projection * View * Model3;
         // Use our shader
         glUseProgram(programID);
 
@@ -167,6 +119,7 @@ int main( void )
             g_color_buffer_data[3*v+1] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
             g_color_buffer_data[3*v+2] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
         }
+
 
         glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
         glBufferData(GL_ARRAY_BUFFER, sizeof(g_color_buffer_data), g_color_buffer_data, GL_STATIC_DRAW);
@@ -182,37 +135,15 @@ int main( void )
                 (void*)0                          // array buffer offset
                 );
 
-        //// 1rst attribute buffer : vertices
-        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, cubeBuffer);
-        glVertexAttribPointer(
-                0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-                3,                  // size
-                GL_FLOAT,           // type
-                GL_FALSE,           // normalized?
-                0,                  // stride
-                (void*)0            // array buffer offset
-                );
-
-        glDrawArrays(GL_TRIANGLES, 0, 12*3); // 3 indices starting at 0 -> 1 triangle
-
-        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp3[0][0]);
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, cubeBuffer2);
-        glVertexAttribPointer(
-                0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-                3,                  // size
-                GL_FLOAT,           // type
-                GL_FALSE,           // normalized?
-                0,                  // stride
-                (void*)0            // array buffer offset
-                );
-
-        glDrawArrays(GL_TRIANGLES, 0, 12*3); // 3 indices starting at 0 -> 1 triangle
-
-        //Draw the triangle !
-
+        cube->draw(Projection, View);
+        cube2->draw(Projection, View);
+        cube3->draw(Projection, View);
+        cube4->draw(Projection, View);
+        cube5->draw(Projection, View);
+        cube6->draw(Projection, View);
+        cube7->draw(Projection, View);
+        cube8->draw(Projection, View);
+        cube9->draw(Projection, View);
 
         //glDisableVertexAttribArray(0);
         //glDisableVertexAttribArray(1);
@@ -227,8 +158,8 @@ int main( void )
             glfwWindowShouldClose(window) == 0 );
 
     // Cleanup VBO
-    glDeleteBuffers(1, &cubeBuffer);
-    glDeleteVertexArrays(1, &VertexArrayID);
+    //glDeleteBuffers(1, &cubeBuffer);
+    //glDeleteVertexArrays(1, &VertexArrayID);
     glDeleteProgram(programID);
 
     // Close OpenGL window and terminate GLFW

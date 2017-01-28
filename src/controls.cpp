@@ -73,10 +73,10 @@ void computeMatricesFromInputs(GLFWwindow* window){
   //float eye = 6*cos(phi)*sin(theta);
   //float eye = 6*cos(theta);
 
-  float radius = 20.0f;
+  float radius = 30.0f;
   float X = sin(theta) * radius;
   float Z = cos(theta) * radius;
-  float Y = 3;
+  float Y = 5;
 
   ViewMatrix = 
     //glm::rotate(glm::mat4(), 0.5f, glm::vec3(0, 1, 0)) * 
