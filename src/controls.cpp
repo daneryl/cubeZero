@@ -65,28 +65,20 @@ void computeMatricesFromInputs(GLFWwindow* window){
 	// Reset mouse position for next frame
 
 
-	float FoV = initialFoV;// - 5 * glfwGetMouseWheel(); // Now GLFW 3 requires setting up a callback for this. It's a bit too complicated for this beginner's tutorial, so it's disabled instead.
+    float FoV = initialFoV;// - 5 * glfwGetMouseWheel(); // Now GLFW 3 requires setting up a callback for this. It's a bit too complicated for this beginner's tutorial, so it's disabled instead.
 
-  //print(horizontalAngle);
-	// Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-	ProjectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
-  //float eye = 6*cos(phi)*sin(theta);
-  //float eye = 6*cos(theta);
+    ProjectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
 
-  float radius = 30.0f;
-  float X = sin(theta) * radius;
-  float Z = cos(theta) * radius;
-  float Y = 5;
+    float radius = 30.0f;
+    float X = sin(theta) * radius;
+    float Z = cos(theta) * radius;
+    float Y = 14;
 
-  ViewMatrix = 
-    //glm::rotate(glm::mat4(), 0.5f, glm::vec3(0, 1, 0)) * 
-    glm::lookAt( glm::vec3(X, Y, Z), glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ));
-  //ViewMatrix = glm::translate(ViewMatrix, glm::vec3(X, Y, Z));
-	// For the next frame, the "last time" will be "now"
-	lastTime = currentTime;
+    ViewMatrix = glm::lookAt( glm::vec3(X, Y, Z), glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ));
 
-  theta += (x-oldX)*0.01f;
-  phi   += (y-oldY)*0.01f;
-  oldX = x; 
-  oldY = y;
+    lastTime = currentTime;
+    theta += (x-oldX)*0.01f;
+    //phi   += (y-oldY)*0.1f;
+    oldX = x; 
+    oldY = y;
 }

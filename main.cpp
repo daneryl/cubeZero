@@ -97,6 +97,28 @@ int main( void )
     Cube *cube8 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 2.2f, 0.0f)), MatrixID);
     Cube *cube9 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 2.2f, 0.0f)), MatrixID);
 
+    Cube *cube10 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 2.2f)), MatrixID);
+    Cube *cube11 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 2.2f, 2.2f)), MatrixID);
+    Cube *cube12 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, -2.2f, 2.2f)), MatrixID);
+    Cube *cube13 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 0.0f, 2.2f)), MatrixID);
+    Cube *cube14 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -2.2f, 2.2f)), MatrixID);
+    Cube *cube15 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, -2.2f, 2.2f)), MatrixID);
+    Cube *cube16 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 0.0f, 2.2f)), MatrixID);
+    Cube *cube17 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 2.2f, 2.2f)), MatrixID);
+    Cube *cube18 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 2.2f, 2.2f)), MatrixID);
+
+    Cube *cube19 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -2.2f)), MatrixID);
+    Cube *cube20 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 2.2f, -2.2f)), MatrixID);
+    Cube *cube21 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, -2.2f, -2.2f)), MatrixID);
+    Cube *cube22 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 0.0f, -2.2f)), MatrixID);
+    Cube *cube23 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -2.2f, -2.2f)), MatrixID);
+    Cube *cube24 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, -2.2f, -2.2f)), MatrixID);
+    Cube *cube25 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 0.0f, -2.2f)), MatrixID);
+    Cube *cube26 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 2.2f, -2.2f)), MatrixID);
+    Cube *cube27 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 2.2f, -2.2f)), MatrixID);
+
+    glUseProgram(programID);
+
     do{
         // Enable depth test
         glEnable(GL_DEPTH_TEST);
@@ -111,7 +133,6 @@ int main( void )
         glm::mat4 Projection = getProjectionMatrix();
         glm::mat4 View = getViewMatrix();
         // Use our shader
-        glUseProgram(programID);
 
         //srand (static_cast <unsigned> (time(0)));
         for (int v = 0; v < 12*3 ; v++) {
@@ -135,6 +156,8 @@ int main( void )
                 (void*)0                          // array buffer offset
                 );
 
+        glEnableVertexAttribArray(0);
+
         cube->draw(Projection, View);
         cube2->draw(Projection, View);
         cube3->draw(Projection, View);
@@ -144,6 +167,26 @@ int main( void )
         cube7->draw(Projection, View);
         cube8->draw(Projection, View);
         cube9->draw(Projection, View);
+
+        cube10->draw(Projection, View);
+        cube11->draw(Projection, View);
+        cube12->draw(Projection, View);
+        cube13->draw(Projection, View);
+        cube14->draw(Projection, View);
+        cube15->draw(Projection, View);
+        cube16->draw(Projection, View);
+        cube17->draw(Projection, View);
+        cube18->draw(Projection, View);
+
+        cube19->draw(Projection, View);
+        cube20->draw(Projection, View);
+        cube21->draw(Projection, View);
+        cube22->draw(Projection, View);
+        cube23->draw(Projection, View);
+        cube24->draw(Projection, View);
+        cube25->draw(Projection, View);
+        cube26->draw(Projection, View);
+        cube27->draw(Projection, View);
 
         //glDisableVertexAttribArray(0);
         //glDisableVertexAttribArray(1);

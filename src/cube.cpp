@@ -20,7 +20,6 @@ void Cube::draw(glm::mat4 projection, glm::mat4 view) {
 
     glm::mat4 mvp = projection * view * model;
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
-    glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, cubeBuffer);
     glVertexAttribPointer(
             0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
