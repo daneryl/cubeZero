@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <ctime>
 #include <GL/glew.h>
+#include <vector>
+#include <algorithm>
 
 #include <GLFW/glfw3.h>
 //Include GLM
@@ -26,6 +28,7 @@ int main( void )
         getchar();
         return -1;
     }
+
     glfwWindowHint(GLFW_SAMPLES, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
@@ -78,6 +81,11 @@ int main( void )
     //GLuint MatrixID2 = glGetUniformLocation(programID, "MVP2");
     //
     static GLfloat g_color_buffer_data[12*3*3];
+    for (int v = 0; v < 12*3 ; v++) {
+        g_color_buffer_data[3*v+0] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        g_color_buffer_data[3*v+1] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+        g_color_buffer_data[3*v+2] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    }
 
     // Send our transformation to the currently bound shader, in the "MVP" uniform
     // This is done in the main loop since each model will have a different MVP matrix (At least for the M part)
@@ -86,36 +94,22 @@ int main( void )
 
     GLuint colorbuffer;
     glGenBuffers(1, &colorbuffer);
-
-    Cube *cube = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f)), MatrixID);
-    Cube *cube2 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 2.2f, 0.0f)), MatrixID);
-    Cube *cube3 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, -2.2f, 0.0f)), MatrixID);
-    Cube *cube4 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 0.0f, 0.0f)), MatrixID);
-    Cube *cube5 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -2.2f, 0.0f)), MatrixID);
-    Cube *cube6 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, -2.2f, 0.0f)), MatrixID);
-    Cube *cube7 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 0.0f, 0.0f)), MatrixID);
-    Cube *cube8 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 2.2f, 0.0f)), MatrixID);
-    Cube *cube9 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 2.2f, 0.0f)), MatrixID);
-
-    Cube *cube10 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 2.2f)), MatrixID);
-    Cube *cube11 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 2.2f, 2.2f)), MatrixID);
-    Cube *cube12 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, -2.2f, 2.2f)), MatrixID);
-    Cube *cube13 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 0.0f, 2.2f)), MatrixID);
-    Cube *cube14 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -2.2f, 2.2f)), MatrixID);
-    Cube *cube15 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, -2.2f, 2.2f)), MatrixID);
-    Cube *cube16 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 0.0f, 2.2f)), MatrixID);
-    Cube *cube17 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 2.2f, 2.2f)), MatrixID);
-    Cube *cube18 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 2.2f, 2.2f)), MatrixID);
-
-    Cube *cube19 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -2.2f)), MatrixID);
-    Cube *cube20 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 2.2f, -2.2f)), MatrixID);
-    Cube *cube21 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, -2.2f, -2.2f)), MatrixID);
-    Cube *cube22 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 0.0f, -2.2f)), MatrixID);
-    Cube *cube23 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -2.2f, -2.2f)), MatrixID);
-    Cube *cube24 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, -2.2f, -2.2f)), MatrixID);
-    Cube *cube25 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.2f, 0.0f, -2.2f)), MatrixID);
-    Cube *cube26 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 2.2f, -2.2f)), MatrixID);
-    Cube *cube27 = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(-2.2f, 2.2f, -2.2f)), MatrixID);
+    //Cube cubes[28];
+    std::vector<Cube> cubes;
+    //cubes.reserve();
+    for (int x = 0; x < 3; ++x)
+    {
+        for (int y = 0; y < 3; ++y)
+        {
+            for (int z = 0; z < 3; ++z)
+            {
+                float xTranslation = (x*2.2);
+                float yTranslation = (y*2.2);
+                float zTranslation = (z*2.2);
+                cubes.push_back(Cube(glm::translate(glm::mat4(1.0f), glm::vec3(xTranslation, yTranslation, zTranslation)), MatrixID));
+            }
+        }
+    }
 
     glUseProgram(programID);
 
@@ -135,11 +129,6 @@ int main( void )
         // Use our shader
 
         //srand (static_cast <unsigned> (time(0)));
-        for (int v = 0; v < 12*3 ; v++) {
-            g_color_buffer_data[3*v+0] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-            g_color_buffer_data[3*v+1] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-            g_color_buffer_data[3*v+2] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-        }
 
 
         glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
@@ -158,36 +147,9 @@ int main( void )
 
         glEnableVertexAttribArray(0);
 
-        cube->draw(Projection, View);
-        cube2->draw(Projection, View);
-        cube3->draw(Projection, View);
-        cube4->draw(Projection, View);
-        cube5->draw(Projection, View);
-        cube6->draw(Projection, View);
-        cube7->draw(Projection, View);
-        cube8->draw(Projection, View);
-        cube9->draw(Projection, View);
-
-        cube10->draw(Projection, View);
-        cube11->draw(Projection, View);
-        cube12->draw(Projection, View);
-        cube13->draw(Projection, View);
-        cube14->draw(Projection, View);
-        cube15->draw(Projection, View);
-        cube16->draw(Projection, View);
-        cube17->draw(Projection, View);
-        cube18->draw(Projection, View);
-
-        cube19->draw(Projection, View);
-        cube20->draw(Projection, View);
-        cube21->draw(Projection, View);
-        cube22->draw(Projection, View);
-        cube23->draw(Projection, View);
-        cube24->draw(Projection, View);
-        cube25->draw(Projection, View);
-        cube26->draw(Projection, View);
-        cube27->draw(Projection, View);
-
+        for(int i=0;i<cubes.size();++i) {
+            cubes.at(i).draw(Projection, View);
+        }
         //glDisableVertexAttribArray(0);
         //glDisableVertexAttribArray(1);
         //glDisableVertexAttribArray(2);

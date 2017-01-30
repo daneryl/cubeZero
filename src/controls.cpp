@@ -25,13 +25,6 @@ glm::mat4 getProjectionMatrix(){
 }
 
 
-// Initial position : on +Z
-glm::vec3 position = glm::vec3( 4, 3, 3 ); 
-glm::vec3 direction = glm::vec3( 0, 0, 5 ); 
-// Initial horizontal angle : toward -Z
-float horizontalAngle = 9.14f;
-// Initial vertical angle : none
-float verticalAngle = 0.0f;
 // Initial Field of View
 float initialFoV = 45.0f;
 
@@ -55,15 +48,6 @@ void computeMatricesFromInputs(GLFWwindow* window){
 	// Get mouse position
 	double x, y;
 	glfwGetCursorPos(window, &x, &y);
-  //glfwSetCursorPos(window, (float)1024/2, (float)768/2);
-
-	// Compute new orientation
-    horizontalAngle += mouseSpeed * float(1024/2 - x );
-	//verticalAngle   += mouseSpeed * float( 768/2 - y );
-    verticalAngle   = 0.0f;
-
-	// Reset mouse position for next frame
-
 
     float FoV = initialFoV;// - 5 * glfwGetMouseWheel(); // Now GLFW 3 requires setting up a callback for this. It's a bit too complicated for this beginner's tutorial, so it's disabled instead.
 
@@ -74,7 +58,8 @@ void computeMatricesFromInputs(GLFWwindow* window){
     float Z = cos(theta) * radius;
     float Y = 14;
 
-    ViewMatrix = glm::lookAt( glm::vec3(X, Y, Z), glm::vec3( 0, 0, 0 ), glm::vec3( 0, 1, 0 ));
+    ViewMatrix = glm::lookAt( glm::vec3(X, Y, Z), glm::vec3( 0.0f, 0.0f, 0.0f ), glm::vec3( 0, 1, 0 ));
+    ViewMatrix = glm::translate(ViewMatrix, glm::vec3(-2.2f, -2.2f, -2.2f));
 
     lastTime = currentTime;
     theta += (x-oldX)*0.01f;
