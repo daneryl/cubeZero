@@ -1,27 +1,27 @@
 [
 {
   "directory": "/Users/daneryl/workspace/cubeZero/build",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/main.cpp.o -c /Users/daneryl/workspace/cubeZero/main.cpp",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=gnu++14 -o CMakeFiles/cubeZero.dir/main.cpp.o -c /Users/daneryl/workspace/cubeZero/main.cpp",
   "file": "/Users/daneryl/workspace/cubeZero/main.cpp"
 },
 {
   "directory": "/Users/daneryl/workspace/cubeZero/build",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/src/controls.cpp.o -c /Users/daneryl/workspace/cubeZero/src/controls.cpp",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=gnu++14 -o CMakeFiles/cubeZero.dir/src/controls.cpp.o -c /Users/daneryl/workspace/cubeZero/src/controls.cpp",
   "file": "/Users/daneryl/workspace/cubeZero/src/controls.cpp"
 },
 {
   "directory": "/Users/daneryl/workspace/cubeZero/build",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/src/shader.cpp.o -c /Users/daneryl/workspace/cubeZero/src/shader.cpp",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=gnu++14 -o CMakeFiles/cubeZero.dir/src/cube.cpp.o -c /Users/daneryl/workspace/cubeZero/src/cube.cpp",
+  "file": "/Users/daneryl/workspace/cubeZero/src/cube.cpp"
+},
+{
+  "directory": "/Users/daneryl/workspace/cubeZero/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=gnu++14 -o CMakeFiles/cubeZero.dir/src/shader.cpp.o -c /Users/daneryl/workspace/cubeZero/src/shader.cpp",
   "file": "/Users/daneryl/workspace/cubeZero/src/shader.cpp"
 },
 {
   "directory": "/Users/daneryl/workspace/cubeZero/build",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/src/test.cpp.o -c /Users/daneryl/workspace/cubeZero/src/test.cpp",
-  "file": "/Users/daneryl/workspace/cubeZero/src/test.cpp"
-},
-{
-  "directory": "/Users/daneryl/workspace/cubeZero/build",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -o CMakeFiles/cubeZero.dir/src/util.cpp.o -c /Users/daneryl/workspace/cubeZero/src/util.cpp",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -I/Users/daneryl/workspace/cubeZero/external/glfw/include -I/Users/daneryl/workspace/cubeZero/external/glfw/deps -I/Users/daneryl/workspace/cubeZero/external/glm -I/usr/local/include   -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk   -std=gnu++14 -o CMakeFiles/cubeZero.dir/src/util.cpp.o -c /Users/daneryl/workspace/cubeZero/src/util.cpp",
   "file": "/Users/daneryl/workspace/cubeZero/src/util.cpp"
 },
 {
