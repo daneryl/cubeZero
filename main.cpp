@@ -10,7 +10,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-// using namespace glm;
+using namespace glm;
 
 #include "src/Scene.hpp"
 #include "src/controls.hpp"
@@ -25,72 +25,57 @@ int main(void) {
   GLFWwindow *window = scene.window;
   GLuint programID = scene.program;
   GLuint MatrixID = scene.matrixId;
-  glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
 
   GLuint VertexArrayID;
   glGenVertexArrays(1, &VertexArrayID);
   glBindVertexArray(VertexArrayID);
 
-  //static GLfloat g_color_buffer_data[12 * 3 * 3];
-  //g_color_buffer_data[3 * 0] = 0;
-  //g_color_buffer_data[3 * 1] = 1;
-  //g_color_buffer_data[3 * 2] = 0;
-  //for (int v = 2; v < 36; v++) {
-    //g_color_buffer_data[3 * v + 0] = 1;
-    //g_color_buffer_data[3 * v + 1] = 0;
-    //g_color_buffer_data[3 * v + 2] = 0;
-  //}
-
-  static GLfloat g_color_buffer_data[] = {
+  // clang-format off
+  static vec3 g_color_buffer_data[] = {
     // front side (red)
-    1.0, 0.0, 0.0,
-    1.0, 0.0, 0.0,
-    1.0, 0.0, 0.0,
-    1.0, 0.0, 0.0,
-    1.0, 0.0, 0.0,
-    1.0, 0.0, 0.0,
-    // right side (green)
-    0.0, 1.0, 0.0,
-    0.0, 1.0, 0.0,
-    0.0, 1.0, 0.0,
-    0.0, 1.0, 0.0,
-    0.0, 1.0, 0.0,
-    0.0, 1.0, 0.0,
-    // back side (orange)
-    1.0, 0.5, 0.0,
-    1.0, 0.5, 0.0,
-    1.0, 0.5, 0.0,
-    1.0, 0.5, 0.0,
-    1.0, 0.5, 0.0,
-    1.0, 0.5, 0.0,
-    // left side (blue)
-    0.0, 0.0, 1.0,
-    0.0, 0.0, 1.0,
-    0.0, 0.0, 1.0,
-    0.0, 0.0, 1.0,
-    0.0, 0.0, 1.0,
-    0.0, 0.0, 1.0,
-    // top side (yellow)
-    1.0, 1.0, 0.0,
-    1.0, 1.0, 0.0,
-    1.0, 1.0, 0.0,
-    1.0, 1.0, 0.0,
-    1.0, 1.0, 0.0,
-    1.0, 1.0, 0.0,
-    // bottom side (white)
-    1.0, 1.0, 1.0,
-    1.0, 1.0, 1.0,
-    1.0, 1.0, 1.0,
-    1.0, 1.0, 1.0,
-    1.0, 1.0, 1.0,
-    1.0, 1.0, 1.0,
+    vec3(1.0f, 0.0f, 0.0f),
+    vec3(1.0f, 0.0f, 0.0f),
+    vec3(1.0f, 0.0f, 0.0f),
+    vec3(1.0f, 0.0f, 0.0f),
+    vec3(1.0f, 0.0f, 0.0f),
+    vec3(1.0f, 0.0f, 0.0f),
+    // right sidef (green)
+    vec3(0.0f, 1.0f, 0.0f),
+    vec3(0.0f, 1.0f, 0.0f),
+    vec3(0.0f, 1.0f, 0.0f),
+    vec3(0.0f, 1.0f, 0.0f),
+    vec3(0.0f, 1.0f, 0.0f),
+    vec3(0.0f, 1.0f, 0.0f),
+    // back side f(orange)
+    vec3(1.0f, 0.5f, 0.0f),
+    vec3(1.0f, 0.5f, 0.0f),
+    vec3(1.0f, 0.5f, 0.0f),
+    vec3(1.0f, 0.5f, 0.0f),
+    vec3(1.0f, 0.5f, 0.0f),
+    vec3(1.0f, 0.5f, 0.0f),
+    // left side f(blue)
+    vec3(0.0f, 0.0f, 1.0f),
+    vec3(0.0f, 0.0f, 1.0f),
+    vec3(0.0f, 0.0f, 1.0f),
+    vec3(0.0f, 0.0f, 1.0f),
+    vec3(0.0f, 0.0f, 1.0f),
+    vec3(0.0f, 0.0f, 1.0f),
+    // top side (fyellofw)
+    vec3(1.0f, 1.0f, 0.0f),
+    vec3(1.0f, 1.0f, 0.0f),
+    vec3(1.0f, 1.0f, 0.0f),
+    vec3(1.0f, 1.0f, 0.0f),
+    vec3(1.0f, 1.0f, 0.0f),
+    vec3(1.0f, 1.0f, 0.0f),
+    // bottom sidfe (white)
+    vec3(1.0f, 1.0f, 1.0f),
+    vec3(1.0f, 1.0f, 1.0f),
+    vec3(1.0f, 1.0f, 1.0f),
+    vec3(1.0f, 1.0f, 1.0f),
+    vec3(1.0f, 1.0f, 1.0f),
+    vec3(1.0f, 1.0f, 1.0f)
   };
-
-
-
-  // Send our transformation to the currently bound shader, in the "MVP" uniform
-  // This is done in the main loop since each model will have a different MVP
-  // matrix (At least for the M part)
+  // clang format on
 
   printf("OpenGL version supported by this platform (%s): \n", glGetString(GL_VERSION));
 
@@ -124,6 +109,7 @@ int main(void) {
                           );
 
     glEnableVertexAttribArray(0);
+
     rubik.draw(Projection, View);
 
     glDisableVertexAttribArray(0);

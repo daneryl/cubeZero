@@ -24,8 +24,7 @@ class Scene {
     // To make MacOS happy; should not be needed
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    window =
-        glfwCreateWindow(1024, 768, "Tutorial 02 - Red triangle", NULL, NULL);
+    window = glfwCreateWindow(1024, 768, "Tutorial 02 - Red triangle", NULL, NULL);
     if (window == NULL) {
       fprintf(stderr,
               "Failed to open GLFW window. If you have an Intel GPU, they "
@@ -52,9 +51,8 @@ class Scene {
     // Accept fragment if it closer to the camera than the former one
     glDepthFunc(GL_LESS);
     // hide triangles which normal is not towards the camera
-    // glEnable(GL_CULL_FACE);
+    glEnable(GL_CULL_FACE);
+    glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
   }
-
- private:
 };
 #endif

@@ -35,6 +35,7 @@ void Cube::draw(glm::mat4 projection, glm::mat4 view) {
   // glDrawElements(GL_TRIANGLES, 12 * 3, GL_UNSIGNED_SHORT, 0);
 }
 
+// clang-format off
 const GLfloat Cube::vertexList[] = {
     //front side
     1.0f,-1.0f,-1.0f,
