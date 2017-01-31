@@ -1,175 +1,148 @@
+#include <GL/glew.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctime>
-#include <GL/glew.h>
-#include <vector>
 #include <algorithm>
+#include <ctime>
+#include <vector>
 
 #include <GLFW/glfw3.h>
-//Include GLM
+// Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-//using namespace glm;
+// using namespace glm;
 
-#include "src/shader.h"
+#include "src/Scene.hpp"
 #include "src/controls.hpp"
 #include "src/cube.hpp"
+#include "src/puzzle.hpp"
+#include "src/shader.h"
 
 #define GLSL(src) #src
 
-int main( void )
-{
-    GLFWwindow *window;
-    // Initialise GLFW
-    if( !glfwInit() )
-    {
-        fprintf( stderr, "Failed to initialize GLFW\n" );
-        getchar();
-        return -1;
-    }
+int main(void) {
+  Scene scene;
+  GLFWwindow *window = scene.window;
+  GLuint programID = scene.program;
+  GLuint MatrixID = scene.matrixId;
+  glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
 
-    glfwWindowHint(GLFW_SAMPLES, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+  GLuint VertexArrayID;
+  glGenVertexArrays(1, &VertexArrayID);
+  glBindVertexArray(VertexArrayID);
 
-    // Open a window and create its OpenGL context
-    window = glfwCreateWindow( 1024, 768, "Tutorial 02 - Red triangle", NULL, NULL);
-    if( window == NULL ){
-        fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
-        getchar();
-        glfwTerminate();
-        return -1;
-    }
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    glfwMakeContextCurrent(window);
+  //static GLfloat g_color_buffer_data[12 * 3 * 3];
+  //g_color_buffer_data[3 * 0] = 0;
+  //g_color_buffer_data[3 * 1] = 1;
+  //g_color_buffer_data[3 * 2] = 0;
+  //for (int v = 2; v < 36; v++) {
+    //g_color_buffer_data[3 * v + 0] = 1;
+    //g_color_buffer_data[3 * v + 1] = 0;
+    //g_color_buffer_data[3 * v + 2] = 0;
+  //}
 
-    // hide triangles which normal is not towards the camera
-    glEnable(GL_CULL_FACE);
-
-    //Cube cube = new Cube(glm::translate(glm::mat4(1.0f), glm::vec3(2.0f, 2.2f, 0.0f)));
-
-    // Initialize GLEW
-    glewExperimental = true; // Needed for core profile
-    if (glewInit() != GLEW_OK) {
-        fprintf(stderr, "Failed to initialize GLEW\n");
-        getchar();
-        glfwTerminate();
-        return -1;
-    }
-
-    // Ensure we can capture the escape key being pressed below
-    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-
-    // Dark blue background
-    glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
-
-    GLuint VertexArrayID;
-    glGenVertexArrays(1, &VertexArrayID);
-    glBindVertexArray(VertexArrayID);
-
-    // Create and compile our GLSL program from the shaders
-    GLuint programID = LoadShaders( "vertex.shader", "fragment.shader" );
-
-
-    // Get a handle for our "MVP" uniform
-    // Only during the initialisation
-    GLuint MatrixID = glGetUniformLocation(programID, "MVP");
-    //GLuint MatrixID2 = glGetUniformLocation(programID, "MVP2");
-    //GLuint MatrixID2 = glGetUniformLocation(programID, "MVP2");
-    //
-    static GLfloat g_color_buffer_data[12*3*3];
-    for (int v = 0; v < 12*3 ; v++) {
-        g_color_buffer_data[3*v+0] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-        g_color_buffer_data[3*v+1] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-        g_color_buffer_data[3*v+2] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-    }
-
-    // Send our transformation to the currently bound shader, in the "MVP" uniform
-    // This is done in the main loop since each model will have a different MVP matrix (At least for the M part)
-
-    printf("OpenGL version supported by this platform (%s): \n", glGetString(GL_VERSION));
-
-    GLuint colorbuffer;
-    glGenBuffers(1, &colorbuffer);
-    //Cube cubes[28];
-    std::vector<Cube> cubes;
-    //cubes.reserve();
-    for (int x = 0; x < 3; ++x)
-    {
-        for (int y = 0; y < 3; ++y)
-        {
-            for (int z = 0; z < 3; ++z)
-            {
-                float xTranslation = (x*2.2);
-                float yTranslation = (y*2.2);
-                float zTranslation = (z*2.2);
-                cubes.push_back(Cube(glm::translate(glm::mat4(1.0f), glm::vec3(xTranslation, yTranslation, zTranslation)), MatrixID));
-            }
-        }
-    }
-
-    glUseProgram(programID);
-
-    do{
-        // Enable depth test
-        glEnable(GL_DEPTH_TEST);
-        // Accept fragment if it closer to the camera than the former one
-        glDepthFunc(GL_LESS);
-        // Clear the screen
-        //glClear( GL_COLOR_BUFFER_BIT );
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        //glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
-
-        computeMatricesFromInputs(window);
-        glm::mat4 Projection = getProjectionMatrix();
-        glm::mat4 View = getViewMatrix();
-        // Use our shader
-
-        //srand (static_cast <unsigned> (time(0)));
+  static GLfloat g_color_buffer_data[] = {
+    // front colors
+    1.0, 0.5, 0.0,
+    1.0, 0.5, 0.0,
+    1.0, 0.5, 0.0,
+    0.0, 1.0, 0.0,
+    0.0, 1.0, 0.0,
+    0.0, 1.0, 0.0,
+    // front colors
+    1.0, 0.5, 0.0,
+    1.0, 0.5, 0.0,
+    1.0, 0.5, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    // front colors
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    0.0, 1.0, 0.0,
+    0.0, 1.0, 0.0,
+    0.0, 1.0, 0.0,
+    // front colors
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    // front colors
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    // front colors
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0,
+    1.0, 0.0, 0.0
+  };
 
 
-        glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(g_color_buffer_data), g_color_buffer_data, GL_STATIC_DRAW);
 
-        glEnableVertexAttribArray(1);
-        glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
-        glVertexAttribPointer(
-                1,                                // attribute. No particular reason for 1, but must match the layout in the shader.
-                3,                                // size
-                GL_FLOAT,                         // type
-                GL_FALSE,                         // normalized?
-                0,                                // stride
-                (void*)0                          // array buffer offset
-                );
+  // Send our transformation to the currently bound shader, in the "MVP" uniform
+  // This is done in the main loop since each model will have a different MVP
+  // matrix (At least for the M part)
 
-        glEnableVertexAttribArray(0);
+  printf("OpenGL version supported by this platform (%s): \n", glGetString(GL_VERSION));
 
-        for(int i=0;i<cubes.size();++i) {
-            cubes.at(i).draw(Projection, View);
-        }
-        //glDisableVertexAttribArray(0);
-        //glDisableVertexAttribArray(1);
-        //glDisableVertexAttribArray(2);
+  GLuint colorbuffer;
+  glGenBuffers(1, &colorbuffer);
 
-        // Swap buffers
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+  Puzzle rubik = Puzzle(3, 3, 3, MatrixID);
 
-    } // Check if the ESC key was pressed or the window was closed
-    while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
-            glfwWindowShouldClose(window) == 0 );
+  do {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // Cleanup VBO
-    //glDeleteBuffers(1, &cubeBuffer);
-    //glDeleteVertexArrays(1, &VertexArrayID);
-    glDeleteProgram(programID);
+    computeMatricesFromInputs(window);
+    glm::mat4 Projection = getProjectionMatrix();
+    glm::mat4 View = getViewMatrix();
+    // Use our shader
 
-    // Close OpenGL window and terminate GLFW
-    glfwTerminate();
+    // srand (static_cast <unsigned> (time(0)));
 
-    return 0;
+    glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(g_color_buffer_data), g_color_buffer_data, GL_STATIC_DRAW);
+
+    glEnableVertexAttribArray(1);
+    glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+    glVertexAttribPointer(1,         // attribute. No particular reason for 1, but must
+                                     // match the layout in the shader.
+                          3,         // size
+                          GL_FLOAT,  // type
+                          GL_FALSE,  // normalized?
+                          0,         // stride
+                          (void *)0  // array buffer offset
+                          );
+
+    glEnableVertexAttribArray(0);
+    rubik.draw(Projection, View);
+
+    glDisableVertexAttribArray(0);
+    glDisableVertexAttribArray(1);
+
+    // Swap buffers
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+
+  }  // Check if the ESC key was pressed or the window was closed
+  while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
+
+  // Cleanup VBO
+  // glDeleteBuffers(1, &cubeBuffer);
+  // glDeleteVertexArrays(1, &VertexArrayID);
+  glDeleteProgram(programID);
+
+  // Close OpenGL window and terminate GLFW
+  glfwTerminate();
+
+  return 0;
 }
-
