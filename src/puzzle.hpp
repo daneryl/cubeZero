@@ -4,11 +4,11 @@
 #include <GL/glew.h>
 #include <stdio.h>
 #include <string.h>
+#include <cmath>
 #include <cstdlib>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
-#include <cmath>
 
 #include "cube.hpp"
 
@@ -17,40 +17,39 @@ class Puzzle {
   std::vector<Cube> cubes;
 
  public:
-  Puzzle(int numX, int numY, int numZ, GLuint MatrixID) {
+  Puzzle(int numX, int numY, int numZ) {
     for (int x = 0; x < numX; ++x) {
       for (int y = 0; y < numY; ++y) {
         for (int z = 0; z < numZ; ++z) {
-          float xTranslation = (x * 2.05);
-          float yTranslation = (y * 2.05);
-          float zTranslation = (z * 2.05);
+          float xTranslation = (x * 2.1);
+          float yTranslation = (y * 2.1);
+          float zTranslation = (z * 2.1);
 
-          printf("x = %f, y = %f, z = %f\n", xTranslation, yTranslation, zTranslation);
+          Cube cube = Cube(glm::translate(glm::mat4(1.0f), glm::vec3(xTranslation, yTranslation, zTranslation)));
+          //printf("x = %f, y = %f, z = %f\n", xTranslation, yTranslation, zTranslation);
           if (x == 0) {
-            printf("left-");
+            cube.back();
           }
-          if (x == 2) {
-            printf("right-");
+          if (x == numX-1) {
+            cube.front();
           }
           if (y == 0) {
-            printf("bottom-");
+            cube.bottom();
           }
-          if (y == 2) {
-            printf("top-");
+          if (y == numY-1) {
+            cube.top();
           }
           if (z == 0) {
-            printf("front");
+            cube.right();
           }
-          if (z == 2) {
-            printf("back");
+          if (z == numZ-1) {
+            cube.left();
           }
           printf("\n");
 
-          cubes.push_back(
-              Cube(glm::translate(glm::mat4(1.0f), glm::vec3(xTranslation, yTranslation, zTranslation)), MatrixID));
+          cubes.push_back(cube);
         }
       }
-      printf("--------------------------------------------\n");
     }
   }
 

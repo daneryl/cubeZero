@@ -1,82 +1,41 @@
 #include <GL/glew.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <vector>
 
 #include "cube.hpp"
+#include "CubeVertexInfo.hpp"
+#include "OpenGL.hpp"
 
-Cube::Cube(glm::mat4 translation, GLuint matID) {
+using namespace glm;
+using namespace std;
+
+Cube::Cube(mat4 translation) {
   model = translation;
-  MatrixID = matID;
-  // MatrixID = glGetUniformLocation(programID, "MVP");
   glGenBuffers(1, &vertexBuffer);
-  glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(Cube::vertexList), Cube::vertexList, GL_STATIC_DRAW);
+  glGenBuffers(1, &colorbuffer);
 }
 
 void Cube::draw(glm::mat4 projection, glm::mat4 view) {
+  vector<vec3> vertex_colors;
+  for (int side = 0; side < side_colors.size(); ++side) {
+    for (int x = 0; x <= 5; ++x) {
+      vertex_colors.push_back(side_colors.at(side));
+    }
+  }
+
   glm::mat4 mvp = projection * view * model;
-  glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
+  OpenGL::uniformMatrix(mvp);
+
+  glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+  glBufferData(GL_ARRAY_BUFFER, vertex_colors.size() * sizeof(vec3), vertex_colors.data(), GL_STATIC_DRAW);
+  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void *)0);
 
   glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+  glBufferData(GL_ARRAY_BUFFER, CUBE_VERTEX_POSTIIONS.size() * sizeof(vec3), CUBE_VERTEX_POSTIIONS.data(), GL_STATIC_DRAW);
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void *)0);
 
-  // glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-  glVertexAttribPointer(0,         // attribute 0. No particular reason for 0, but must
-                                   // match the layout in the shader.
-                        3,         // size
-                        GL_FLOAT,  // type
-                        GL_FALSE,  // normalized?
-                        0,         // stride
-                        (void*)0   // array buffer offset
-                        );
   glDrawArrays(GL_TRIANGLES, 0, 12 * 3);
-  // glDrawElements(GL_TRIANGLES, 12 * 3, GL_UNSIGNED_SHORT, 0);
 }
-
-// clang-format off
-const GLfloat Cube::vertexList[] = {
-    //front side
-    1.0f,-1.0f,-1.0f,
-    1.0f, 1.0f, 1.0f,
-    1.0f,-1.0f, 1.0f,
-    1.0f, 1.0f, 1.0f,
-    1.0f,-1.0f,-1.0f,
-    1.0f, 1.0f,-1.0f,
-    //right side
-    1.0f, 1.0f,-1.0f,
-    1.0f,-1.0f,-1.0f,
-    -1.0f,-1.0f,-1.0f,
-    1.0f, 1.0f,-1.0f, 
-    -1.0f,-1.0f,-1.0f,
-    -1.0f, 1.0f,-1.0f,
-    //back side
-    -1.0f,-1.0f,-1.0f,
-    -1.0f, 1.0f, 1.0f,
-    -1.0f, 1.0f,-1.0f,
-    -1.0f,-1.0f,-1.0f,
-    -1.0f,-1.0f, 1.0f,
-    -1.0f, 1.0f, 1.0f,
-    //left side
-    -1.0f, 1.0f, 1.0f,
-    -1.0f,-1.0f, 1.0f,
-    1.0f,-1.0f, 1.0f,
-    1.0f, 1.0f, 1.0f,
-    -1.0f, 1.0f, 1.0f,
-    1.0f,-1.0f, 1.0f,
-    //top side
-    1.0f, 1.0f, 1.0f,
-    -1.0f, 1.0f,-1.0f,
-    -1.0f, 1.0f, 1.0f,
-    1.0f, 1.0f, 1.0f,
-    1.0f, 1.0f,-1.0f,
-    -1.0f, 1.0f,-1.0f,
-    //bottom side
-    1.0f,-1.0f, 1.0f,
-    -1.0f,-1.0f,-1.0f,
-    1.0f,-1.0f,-1.0f,
-    1.0f,-1.0f, 1.0f,
-    -1.0f,-1.0f, 1.0f,
-    -1.0f,-1.0f,-1.0f,
-};
