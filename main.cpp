@@ -1,4 +1,7 @@
-#include "src/Scene.hpp"
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include "src/controls.hpp"
 #include "src/puzzle.hpp"
 #include "src/OpenGL.hpp"
