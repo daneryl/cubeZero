@@ -4,6 +4,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
+#include <string>
+#include <map>
 
 using namespace glm;
 using namespace std;
@@ -53,19 +55,23 @@ const vector<vec3> CUBE_VERTEX_POSTIIONS = {
   vec3(-1.0f,-1.0f, 1.0f),
   vec3(-1.0f,-1.0f,-1.0f),
 };
-const vector<vec3> SIDE_COLORS = {
-  // front side (red)
-  vec3(0.0f, 0.0f, 0.0f),
-  // right sidef (green)
-  vec3(0.0f, 0.0f, 0.0f),
-  // back side f(orange)
-  vec3(0.0f, 0.0f, 0.0f),
-  // left side f(blue)
-  vec3(0.0f, 0.0f, 0.0f),
-  // top side (yellow)
-  vec3(0.0f, 0.0f, 0.0f),
-  // bottom sidfe (white)
-  vec3(0.0f, 0.0f, 0.0f),
+
+map<string, vec3> BASE_SIDE_COLORS = {
+  {"front", vec3(0.0f, 0.0f, 0.0f)},
+  {"right", vec3(0.0f, 0.0f, 0.0f)},
+  {"back", vec3(0.0f, 0.0f, 0.0f)},
+  {"left", vec3(0.0f, 0.0f, 0.0f)},
+  {"top", vec3(0.0f, 0.0f, 0.0f)},
+  {"bottom", vec3(0.0f, 0.0f, 0.0f)}
 };
 // clang-format on
+
+map<string, vec3> SIDE_COLORS = {
+  {"front", vec3(1.0f, 0.0f, 0.0f)},
+  {"top", vec3(1.0f, 1.0f, 0.0f)},
+  {"back", vec3(1.0f, 0.5f, 0.0f)},
+  {"left", vec3(0.0f, 0.0f, 1.0f)},
+  {"top", vec3(1.0f, 1.0f, 0.0f)},
+  {"bottom", vec3(1.0f, 1.0f, 1.0f)}
+};
 #endif

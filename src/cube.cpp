@@ -20,11 +20,11 @@ Cube::Cube(mat4 translation) {
 
 void Cube::draw(glm::mat4 projection, glm::mat4 view) {
   vector<vec3> vertex_colors;
-  for (int side = 0; side < side_colors.size(); ++side) {
-    for (int x = 0; x <= 5; ++x) {
-      vertex_colors.push_back(side_colors.at(side));
-    }
-  }
+  //for (int side = 0; side < side_colors.size(); ++side) {
+    //for (int x = 0; x <= 5; ++x) {
+      //vertex_colors.push_back(side_colors.at(side));
+    //}
+  //}
 
   glm::mat4 mvp = projection * view * model;
   OpenGL::uniformMatrix(mvp);
