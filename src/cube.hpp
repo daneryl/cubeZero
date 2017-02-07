@@ -9,12 +9,15 @@
 #include <vector>
 
 #include "CubeVertexInfo.hpp"
+#include "PieceColors.hpp"
 
 using namespace std;
 using namespace glm;
+using namespace constants;
 
 class Cube {
  private:
+  GLuint VAO;
   glm::mat4 model;
   GLuint MatrixID;
   GLuint vertexBuffer;
@@ -23,26 +26,8 @@ class Cube {
 
  public:
   vector<vec3> vertex_colors;
-  map<string, vec3> side_colors = BASE_SIDE_COLORS;
-  Cube(glm::mat4 translation);
+  map<string, vec3> side_colors = BASE_SIDE_COLORS();
+  Cube(glm::mat4 translation, PieceColors colors);
   void draw(glm::mat4 projection, glm::mat4 view);
-  void bottom() {
-    //side_colors[5] = vec3(1.0f, 1.0f, 1.0f);
-  }
-  void top() {
-    //side_colors[4] = vec3(1.0f, 1.0f, 0.0f);
-  }
-  void left() {
-    //side_colors[3] = vec3(0.0f, 0.0f, 1.0f);
-  }
-  void right() {
-    //side_colors[1] = vec3(0.0f, 1.0f, 0.0f);
-  }
-  void front() {
-    //side_colors[0] = vec3(1.0f, 0.0f, 0.0f);
-  }
-  void back() {
-    //side_colors[2] = vec3(1.0f, 0.5f, 0.0f);
-  }
 };
 #endif

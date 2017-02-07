@@ -52,12 +52,6 @@ void OpenGL::init() {
   // hide triangles which normal is not towards the camera
   glEnable(GL_CULL_FACE);
   glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
-
-  // generate THE VAO !
-  GLuint VertexArrayID;
-  glGenVertexArrays(1, &VertexArrayID);
-  glBindVertexArray(VertexArrayID);
-  //
 }
 
 void OpenGL::uniformMatrix(mat4 mvp) {

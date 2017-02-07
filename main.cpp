@@ -23,13 +23,8 @@ int main(void) {
     glm::mat4 Projection = getProjectionMatrix();
     glm::mat4 View = getViewMatrix();
 
-    glEnableVertexAttribArray(1);
-    glEnableVertexAttribArray(0);
-
     rubik.draw(Projection, View);
 
-    glDisableVertexAttribArray(0);
-    glDisableVertexAttribArray(1);
     glfwSwapBuffers(window);
     glfwPollEvents();
   }  // Check if the ESC key was pressed or the window was closed

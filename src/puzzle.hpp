@@ -10,6 +10,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
 
+#include "PieceColors.hpp"
 #include "cube.hpp"
 
 class Puzzle {
@@ -25,28 +26,8 @@ class Puzzle {
           float yTranslation = (y * 2.1);
           float zTranslation = (z * 2.1);
 
-          Cube cube = Cube(glm::translate(glm::mat4(1.0f), glm::vec3(xTranslation, yTranslation, zTranslation)));
-          //printf("x = %f, y = %f, z = %f\n", xTranslation, yTranslation, zTranslation);
-          if (x == 0) {
-            cube.back();
-          }
-          if (x == numX-1) {
-            cube.front();
-          }
-          if (y == 0) {
-            cube.bottom();
-          }
-          if (y == numY-1) {
-            cube.top();
-          }
-          if (z == 0) {
-            cube.right();
-          }
-          if (z == numZ-1) {
-            cube.left();
-          }
-          printf("\n");
-
+          PieceColors piece(vec3(x + 1, y + 1, z + 1), vec3(numX, numY, numZ));
+          Cube cube = Cube(glm::translate(glm::mat4(1.0f), glm::vec3(xTranslation, yTranslation, zTranslation)), piece);
           cubes.push_back(cube);
         }
       }
