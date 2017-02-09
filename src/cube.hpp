@@ -2,10 +2,10 @@
 #define CUBE_H
 
 #include <GL/glew.h>
-#include <glm/glm.hpp>
-#include <iostream>
 #include <glm/ext.hpp>
+#include <glm/glm.hpp>
 #include <glm/gtx/string_cast.hpp>
+#include <iostream>
 #include <vector>
 
 #include "CubeVertexInfo.hpp"
@@ -18,16 +18,18 @@ using namespace constants;
 class Cube {
  private:
   GLuint VAO;
-  glm::mat4 model;
   GLuint MatrixID;
   GLuint vertexBuffer;
   GLuint indexBuffer;
   GLuint colorbuffer;
+  float lastTime = 0;
 
  public:
+  float angle = 0;
+  vec3 position;
   vector<vec3> vertex_colors;
   map<string, vec3> side_colors = BASE_SIDE_COLORS();
-  Cube(glm::mat4 translation, PieceColors colors);
-  void draw(glm::mat4 projection, glm::mat4 view);
+  Cube(vec3 position, PieceColors colors);
+  void draw(mat4 MVP);
 };
 #endif

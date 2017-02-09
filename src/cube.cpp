@@ -12,8 +12,8 @@
 using namespace glm;
 using namespace std;
 
-Cube::Cube(mat4 translation, PieceColors colors) {
-  model = translation;
+Cube::Cube(vec3 _position, PieceColors colors) {
+  position = _position;
   glGenBuffers(1, &vertexBuffer);
   glGenBuffers(1, &colorbuffer);
   vertex_colors = colors.get();
@@ -37,10 +37,14 @@ Cube::Cube(mat4 translation, PieceColors colors) {
   glDisableVertexAttribArray(1);
 }
 
-void Cube::draw(glm::mat4 projection, glm::mat4 view) {
-  glm::mat4 mvp = projection * view * model;
-  OpenGL::uniformMatrix(mvp);
+void Cube::draw(mat4 MVP) {
+  double currentTime = glfwGetTime();
+  float deltaTime = float(currentTime - lastTime);
+
+  OpenGL::uniformMatrix(MVP);
   glBindVertexArray(VAO);
   glDrawArrays(GL_TRIANGLES, 0, 12 * 3);
   glBindVertexArray(0);
+
+  lastTime = currentTime;
 }
