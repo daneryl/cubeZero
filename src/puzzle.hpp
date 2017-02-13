@@ -2,6 +2,7 @@
 #define PUZZLE_H
 
 #include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <string.h>
 #include <cmath>
@@ -9,7 +10,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
-#include <GLFW/glfw3.h>
 
 #include "PieceColors.hpp"
 #include "cube.hpp"
@@ -17,10 +17,16 @@
 class Puzzle {
  private:
   std::vector<Cube> cubes;
+  int x;
+  int y;
+  int z;
 
  public:
   float lastTime = 0;
   Puzzle(int numX, int numY, int numZ) {
+    x = numX;
+    y = numY;
+    z = numZ;
     for (int x = 0; x < numX; ++x) {
       for (int y = 0; y < numY; ++y) {
         for (int z = 0; z < numZ; ++z) {
@@ -35,52 +41,30 @@ class Puzzle {
     }
   }
 
-  void draw(glm::mat4 Projection, glm::mat4 View) {
-    mat4 MVP = Projection * View;
-
+  void draw(mat4 MVP) {
     double currentTime = glfwGetTime();
     float deltaTime = float(currentTime - lastTime);
 
-    //cout << deltaTime << "\n";
+    // cout << deltaTime << "\n";
     for (auto &cube : cubes) {
-      mat4 rotation = glm::rotate(glm::mat4(1.0f), glm::radians(cube.angle), vec3(1, 0, 0));
       mat4 translation = glm::translate(glm::vec3(cube.position.x * 2.1, cube.position.y * 2.1, cube.position.z * 2.1));
-      if (cube.position.x == 2) {
-        if (cube.position.y == 2) {
-          translation *= glm::translate(glm::vec3(0, -2.1, 0));
-        }
-        if (cube.position.y == 0) {
-          translation *= glm::translate(glm::vec3(0, 2.1, 0));
-        }
-        if (cube.position.z == 2) {
-          translation *= glm::translate(glm::vec3(0, 0, -2.1));
-        }
-        if (cube.position.z == 0) {
-          translation *= glm::translate(glm::vec3(0, 0, 2.1));
-        }
 
-        translation *= rotation;
-
-        if (cube.position.y == 2) {
-          translation *= glm::translate(glm::vec3(0, 2.1, 0));
-        }
-        if (cube.position.y == 0) {
-          translation *= glm::translate(glm::vec3(0, -2.1, 0));
-        }
-        if (cube.position.z == 2) {
-          translation *= glm::translate(glm::vec3(0, 0, 2.1));
-        }
-        if (cube.position.z == 0) {
-          translation *= glm::translate(glm::vec3(0, 0, -2.1));
-        }
+      mat4 _rotation = glm::rotate(glm::mat4(1.0f), glm::radians(cube.angle), vec3(1, 0, 0));
+      if (cube.position.x == 5 || cube.position.x == 4) {
+        mat4 _translation = glm::translate(glm::vec3(0, 1.05*(y-1), 1.05*(z-1)));
+        _translation *= _rotation;
+        _translation *= glm::translate(vec3(0, -1.05*(y-1), -1.05*(z-1)));
+        translation = _translation * translation;
       }
-      // if (cube.position.y == 2) {
-      // translation *= glm::translate(glm::vec3(0, 0, cube.position.z -1.05));
+
+      //mat4 rotation = glm::rotate(glm::mat4(1.0f), glm::radians(cube.angle), vec3(0, 1, 0));
+      //if (cube.position.y == 0) {
+        //mat4 _translation = glm::translate(glm::vec3(1.05*(x-1), 0, 1.05*(z-1)));
+        //_translation *= rotation;
+        //_translation *= glm::translate(vec3(-1.05*(x-1), 0, -1.05*(z-1)));
+        //translation = _translation * translation;
       //}
-      //* glm::translate(glm::vec3(cube.position.x * -2.1, 1, 1))
-      //* rotation
-      //* glm::translate(glm::vec3(cube.position.x * -2.1, 1, 1))
-      //* glm::translate(glm::vec3(cube.position.x * -2.1, cube.position.y * -2.1, cube.position.z * 2.1));
+
       cube.angle += 100 * deltaTime;
       cube.draw(MVP * translation);
     }

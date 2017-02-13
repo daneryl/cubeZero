@@ -15,7 +15,7 @@ int main(void) {
 
   printf("OpenGL version supported by this platform (%s): \n", glGetString(GL_VERSION));
 
-  Puzzle rubik = Puzzle(3, 3, 3);
+  Puzzle rubik = Puzzle(8, 8, 8);
 
   do {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -23,7 +23,7 @@ int main(void) {
     glm::mat4 Projection = getProjectionMatrix();
     glm::mat4 View = getViewMatrix();
 
-    rubik.draw(Projection, View);
+    rubik.draw(Projection * View * glm::translate(vec3(0, 0, 0)));
 
     glfwSwapBuffers(window);
     glfwPollEvents();

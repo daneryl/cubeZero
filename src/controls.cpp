@@ -49,9 +49,9 @@ void computeMatricesFromInputs(GLFWwindow* window) {
                            // complicated for this beginner's tutorial, so it's
                            // disabled instead.
 
-  ProjectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 200.0f);
+  ProjectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 300.0f);
 
-  float radius = 40.0f;
+  float radius = 70.0f;
   float X = sin(theta) * radius;
   float Z = cos(theta) * radius;
   float Y = 14;
