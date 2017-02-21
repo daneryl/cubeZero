@@ -1,12 +1,19 @@
 #include <GL/glew.h>
+#include <iostream>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "src/OpenGL.hpp"
 #include "src/controls.hpp"
 #include "src/puzzle.hpp"
-#include "src/OpenGL.hpp"
 
 #define GLSL(src) #src
+
+//static void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods) {
+  //if (key == GLFW_KEY_R && action == GLFW_PRESS) {
+    //cout << "works ?\n";
+  //}
+//}
 
 int main(void) {
   OpenGL::init();
@@ -15,7 +22,8 @@ int main(void) {
 
   printf("OpenGL version supported by this platform (%s): \n", glGetString(GL_VERSION));
 
-  Puzzle rubik = Puzzle(8, 8, 8);
+  //glfwSetKeyCallback(window, key_callback);
+  Puzzle rubik = Puzzle(3, 3, 3);
 
   do {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -24,7 +32,9 @@ int main(void) {
     glm::mat4 View = getViewMatrix();
 
     rubik.draw(Projection * View * glm::translate(vec3(0, 0, 0)));
-
+    if (glfwGetKey(window, GLFW_KEY_R)) {
+      rubik.move();
+    }
     glfwSwapBuffers(window);
     glfwPollEvents();
   }  // Check if the ESC key was pressed or the window was closed
