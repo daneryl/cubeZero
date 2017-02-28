@@ -26,6 +26,7 @@ class Cube {
 
  public:
   float angle = 0;
+  float previousAngle = 0;
   vec3 position;
   vector<vec3> vertex_colors;
   map<string, vec3> side_colors = BASE_SIDE_COLORS();

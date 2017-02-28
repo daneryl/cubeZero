@@ -35,6 +35,9 @@ int main(void) {
     if (glfwGetKey(window, GLFW_KEY_R)) {
       rubik.move();
     }
+    if (glfwGetKey(window, GLFW_KEY_F)) {
+      rubik.move(-1);
+    }
     glfwSwapBuffers(window);
     glfwPollEvents();
   }  // Check if the ESC key was pressed or the window was closed
