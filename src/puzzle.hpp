@@ -33,10 +33,6 @@ class Puzzle {
     for (int x = 0; x < numX; ++x) {
       for (int y = 0; y < numY; ++y) {
         for (int z = 0; z < numZ; ++z) {
-          float xTranslation = (x * 2.1);
-          float yTranslation = (y * 2.1);
-          float zTranslation = (z * 2.1);
-
           PieceColors piece(vec3(x + 1, y + 1, z + 1), vec3(numX, numY, numZ));
           cubes.push_back(Cube(vec3(x, y, z), piece));
         }

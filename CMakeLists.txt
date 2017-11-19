@@ -21,20 +21,28 @@ include_directories(
 
 file(GLOB_RECURSE SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 
-add_executable(cubeZero main.cpp ${SRC_FILES})
+option(BUILD_TESTS "Determines whether to build tests." OFF)
 
+add_executable(cubeZero main.cpp ${SRC_FILES})
 target_link_libraries(cubeZero glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 
-option(BUILD_TESTS "Determines whether to build tests." ON)
 if(BUILD_TESTS)
-  set(CATCH_SOURCE_DIR "external/Catch")
+  set(CATCH_INCLUDE_DIR "external/Catch")
+  add_library(Catch INTERFACE)
+  target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 
-  add_subdirectory(${CATCH_SOURCE_DIR})
+  # Make test executable
+  #set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
   file(GLOB_RECURSE TEST_FILES ${PROJECT_SOURCE_DIR}/tests/*.cpp)
-
-  include_directories(${CATCH_SOURCE_DIR}/include)
-  #target_include_directories(Catch INTERFACE ${CMAKE_BINARY_DIR}/external/Catch/include)
   add_executable(tests ${TEST_FILES})
-  #target_link_libraries(tests glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
-  #add_test(NAME test COMMAND tests)
+  target_link_libraries(tests Catch)
+
+  #add_subdirectory(${CATCH_SOURCE_DIR})
+  #file(GLOB_RECURSE TEST_FILES ${PROJECT_SOURCE_DIR}/tests/*.cpp)
+
+  ##include_directories(${CATCH_SOURCE_DIR}/include)
+  ##target_include_directories(Catch INTERFACE ${CMAKE_BINARY_DIR}/external/Catch/include)
+  #add_executable(tests ${TEST_FILES})
+  ##target_link_libraries(tests glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
+  ##add_test(NAME test COMMAND tests)
 endif()

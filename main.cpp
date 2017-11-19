@@ -31,13 +31,15 @@ int main(void) {
     glm::mat4 Projection = getProjectionMatrix();
     glm::mat4 View = getViewMatrix();
 
-    rubik.draw(Projection * View * glm::translate(vec3(0, 0, 0)));
     if (glfwGetKey(window, GLFW_KEY_R)) {
       rubik.move();
     }
     if (glfwGetKey(window, GLFW_KEY_F)) {
       rubik.move(-1);
     }
+
+    rubik.draw(Projection * View * glm::translate(vec3(0, 0, 0)));
+
     glfwSwapBuffers(window);
     glfwPollEvents();
   }  // Check if the ESC key was pressed or the window was closed

@@ -7,6 +7,27 @@
 #include "OpenGL.hpp"
 #include "shader.h"
 
+#include <stdio.h>  /* defines FILENAME_MAX */
+// #define WINDOWS  /* uncomment this line to use it for windows.*/ 
+#ifdef WINDOWS
+#include <direct.h>
+#define GetCurrentDir _getcwd
+#else
+#include <unistd.h>
+#define GetCurrentDir getcwd
+#endif
+#include<iostream>
+ 
+
+using namespace std;
+
+std::string GetCurrentWorkingDir( void ) {
+  char buff[FILENAME_MAX];
+  GetCurrentDir( buff, FILENAME_MAX );
+  std::string current_working_dir(buff);
+  return current_working_dir;
+}
+
 using namespace glm;
 
 GLFWwindow *OpenGL::window;
@@ -41,7 +62,8 @@ void OpenGL::init() {
     glfwTerminate();
   }
   glfwSetInputMode(OpenGL::window, GLFW_STICKY_KEYS, GL_TRUE);
-  OpenGL::program = LoadShaders("src/vertex.shader", "src/fragment.shader");
+  //cout << GetCurrentWorkingDir() << std::endl;
+  OpenGL::program = LoadShaders("../src/vertex.shader", "../src/fragment.shader");
   OpenGL::matrixId = glGetUniformLocation(OpenGL::program, "MVP");
 
   glUseProgram(OpenGL::program);
