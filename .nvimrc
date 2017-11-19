@@ -13,7 +13,9 @@ let g:neomake_cpp_clang_args = [
             \ '-isystem', 
             \ '/Users/daneryl/workspace/cubeZero/external/glfw/include',
             \ '-isystem', 
-            \ '/Users/daneryl/workspace/cubeZero/external/Catch/' 
+            \ '/Users/daneryl/workspace/cubeZero/external/Catch/',
+            \ '-isystem', 
+            \ '/Users/daneryl/workspace/cubeZero/external/FakeIt/single_header/catch/' 
             \ ]
 
 let g:deoplete#sources#clang#std = {'cpp': 'c14'}

@@ -5,8 +5,11 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <stdio.h>
+#include <vector>
 
 using namespace glm;
+using namespace std;
 
 class OpenGL {
  public:
@@ -15,5 +18,8 @@ class OpenGL {
   static GLuint matrixId;
   static void init();
   static void uniformMatrix(mat4 mvp);
+  static void bindVAO(GLuint VAO);
+  static void generateVAO(GLuint *VAO);
+  static void bindBufferData(GLuint index, vector<vec3> data);
 };
 #endif

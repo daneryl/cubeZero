@@ -4,8 +4,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "OpenGL.hpp"
-#include "shader.h"
+#include "../OpenGL.hpp"
+#include "../shader.h"
 
 #include <stdio.h>  /* defines FILENAME_MAX */
 // #define WINDOWS  /* uncomment this line to use it for windows.*/ 
@@ -18,7 +18,6 @@
 #endif
 #include<iostream>
  
-
 using namespace std;
 
 std::string GetCurrentWorkingDir( void ) {
@@ -78,4 +77,21 @@ void OpenGL::init() {
 
 void OpenGL::uniformMatrix(mat4 mvp) {
   glUniformMatrix4fv(OpenGL::matrixId, 1, GL_FALSE, &mvp[0][0]);
+}
+
+void OpenGL::bindVAO(GLuint VAO) {
+  glBindVertexArray(VAO);
+}
+
+void OpenGL::generateVAO(GLuint *VAO) {
+  glGenVertexArrays(1, VAO);
+}
+
+void OpenGL::bindBufferData(GLuint index, vector<vec3> data) {
+  GLuint bufferId;
+  glGenBuffers(1, &bufferId);
+  glBindBuffer(GL_ARRAY_BUFFER, bufferId);
+  glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(vec3), data.data(), GL_STATIC_DRAW);
+  glEnableVertexAttribArray(index);
+  glVertexAttribPointer(index, 3, GL_FLOAT, GL_FALSE, 0, (void *)0);
 }
