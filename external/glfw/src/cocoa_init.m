@@ -27,8 +27,10 @@
 #include "internal.h"
 #include <sys/param.h> // For MAXPATHLEN
 
-
-#if defined(_GLFW_USE_CHDIR)
+#if MAC_OS_X_VERSION_MAX_ALLOWED < 101200
+ #define NSEventMaskKeyUp NSKeyUpMask
+ #define NSEventModifierFlagCommand NSCommandKeyMask
+#endif
 
 // Change to our application bundle's resources directory, if present
 //
@@ -65,8 +67,6 @@ static void changeToResourcesDirectory(void)
 
     chdir(resourcesPath);
 }
-
-#endif /* _GLFW_USE_CHDIR */
 
 // Create key code translation tables
 //
@@ -219,8 +219,9 @@ static GLFWbool updateUnicodeDataNS(void)
         return GLFW_FALSE;
     }
 
-    _glfw.ns.unicodeData = TISGetInputSourceProperty(_glfw.ns.inputSource,
-                                                     kTISPropertyUnicodeKeyLayoutData);
+    _glfw.ns.unicodeData =
+        TISGetInputSourceProperty(_glfw.ns.inputSource,
+                                  kTISPropertyUnicodeKeyLayoutData);
     if (!_glfw.ns.unicodeData)
     {
         _glfwInputError(GLFW_PLATFORM_ERROR,
@@ -236,7 +237,8 @@ static GLFWbool updateUnicodeDataNS(void)
 static GLFWbool initializeTIS(void)
 {
     // This works only because Cocoa has already loaded it properly
-    _glfw.ns.tis.bundle = CFBundleGetBundleWithIdentifier(CFSTR("com.apple.HIToolbox"));
+    _glfw.ns.tis.bundle =
+        CFBundleGetBundleWithIdentifier(CFSTR("com.apple.HIToolbox"));
     if (!_glfw.ns.tis.bundle)
     {
         _glfwInputError(GLFW_PLATFORM_ERROR,
@@ -273,17 +275,21 @@ static GLFWbool initializeTIS(void)
     return updateUnicodeDataNS();
 }
 
-@interface GLFWLayoutListener : NSObject
+@interface GLFWHelper : NSObject
 @end
 
-@implementation GLFWLayoutListener
+@implementation GLFWHelper
 
 - (void)selectedKeyboardInputSourceChanged:(NSObject* )object
 {
     updateUnicodeDataNS();
 }
 
-@end
+- (void)doNothing:(id)object
+{
+}
+
+@end // GLFWHelper
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -293,17 +299,34 @@ static GLFWbool initializeTIS(void)
 int _glfwPlatformInit(void)
 {
     _glfw.ns.autoreleasePool = [[NSAutoreleasePool alloc] init];
+    _glfw.ns.helper = [[GLFWHelper alloc] init];
 
-    _glfw.ns.listener = [[GLFWLayoutListener alloc] init];
+    [NSThread detachNewThreadSelector:@selector(doNothing:)
+                             toTarget:_glfw.ns.helper
+                           withObject:nil];
+
+    [NSApplication sharedApplication];
+
+    NSEvent* (^block)(NSEvent*) = ^ NSEvent* (NSEvent* event)
+    {
+        if ([event modifierFlags] & NSEventModifierFlagCommand)
+            [[NSApp keyWindow] sendEvent:event];
+
+        return event;
+    };
+
+    _glfw.ns.keyUpMonitor =
+        [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyUp
+                                              handler:block];
+
+    if (_glfw.hints.init.ns.chdir)
+        changeToResourcesDirectory();
+
     [[NSNotificationCenter defaultCenter]
-        addObserver:_glfw.ns.listener
+        addObserver:_glfw.ns.helper
            selector:@selector(selectedKeyboardInputSourceChanged:)
                name:NSTextInputContextKeyboardSelectionDidChangeNotification
              object:nil];
-
-#if defined(_GLFW_USE_CHDIR)
-    changeToResourcesDirectory();
-#endif
 
     createKeyTables();
 
@@ -314,9 +337,6 @@ int _glfwPlatformInit(void)
     CGEventSourceSetLocalEventsSuppressionInterval(_glfw.ns.eventSource, 0.0);
 
     if (!initializeTIS())
-        return GLFW_FALSE;
-
-    if (!_glfwInitThreadLocalStoragePOSIX())
         return GLFW_FALSE;
 
     _glfwInitTimerNS();
@@ -348,26 +368,25 @@ void _glfwPlatformTerminate(void)
         _glfw.ns.delegate = nil;
     }
 
-    if (_glfw.ns.listener)
+    if (_glfw.ns.helper)
     {
         [[NSNotificationCenter defaultCenter]
-            removeObserver:_glfw.ns.listener
+            removeObserver:_glfw.ns.helper
                       name:NSTextInputContextKeyboardSelectionDidChangeNotification
                     object:nil];
         [[NSNotificationCenter defaultCenter]
-            removeObserver:_glfw.ns.listener];
-        [_glfw.ns.listener release];
-        _glfw.ns.listener = nil;
+            removeObserver:_glfw.ns.helper];
+        [_glfw.ns.helper release];
+        _glfw.ns.helper = nil;
     }
 
-    [_glfw.ns.cursor release];
-    _glfw.ns.cursor = nil;
+    if (_glfw.ns.keyUpMonitor)
+        [NSEvent removeMonitor:_glfw.ns.keyUpMonitor];
 
     free(_glfw.ns.clipboardString);
 
     _glfwTerminateNSGL();
     _glfwTerminateJoysticksNS();
-    _glfwTerminateThreadLocalStoragePOSIX();
 
     [_glfw.ns.autoreleasePool release];
     _glfw.ns.autoreleasePool = nil;
@@ -376,12 +395,6 @@ void _glfwPlatformTerminate(void)
 const char* _glfwPlatformGetVersionString(void)
 {
     return _GLFW_VERSION_NUMBER " Cocoa NSGL"
-#if defined(_GLFW_USE_CHDIR)
-        " chdir"
-#endif
-#if defined(_GLFW_USE_MENUBAR)
-        " menubar"
-#endif
 #if defined(_GLFW_BUILD_DLL)
         " dynamic"
 #endif
