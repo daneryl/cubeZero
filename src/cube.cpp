@@ -31,6 +31,7 @@ void Cube::rotate(char axis, int axisPosition) {
   /* if (position[axis] === position) { */
   newPosition = position;
   if (axis == 'x') {
+    //corners
     if(position.y == 0 && position.z == 0) {
       newPosition.y = 2;
     }
@@ -43,9 +44,28 @@ void Cube::rotate(char axis, int axisPosition) {
     if(position.y == 0 && position.z == 2) {
       newPosition.z = 0;
     }
+
+    //sides
+    if(position.y == 0 && position.z == 1) {
+      newPosition.z = 0;
+      newPosition.y = 1;
+    }
+    if(position.y == 1 && position.z == 0) {
+      newPosition.y = 2;
+      newPosition.z = 1;
+    }
+    if(position.y == 2 && position.z == 1) {
+      newPosition.z = 2;
+      newPosition.y = 1;
+    }
+    if(position.y == 1 && position.z == 2) {
+      newPosition.z = 1;
+      newPosition.y = 0;
+    }
   }
 
   if (axis == 'y') {
+    //corners
     if(position.x == 0 && position.z == 0) {
       newPosition.z = 2;
     }
@@ -57,6 +77,23 @@ void Cube::rotate(char axis, int axisPosition) {
     }
     if(position.x == 0 && position.z == 2) {
       newPosition.x = 2;
+    }
+    //sides
+    if(position.x == 1 && position.z == 0) {
+      newPosition.z = 1;
+      newPosition.x = 0;
+    }
+    if(position.x == 0 && position.z == 1) {
+      newPosition.x = 1;
+      newPosition.z = 2;
+    }
+    if(position.x == 1 && position.z == 2) {
+      newPosition.z = 1;
+      newPosition.x = 2;
+    }
+    if(position.x == 2 && position.z == 1) {
+      newPosition.z = 0;
+      newPosition.x = 1;
     }
   }
 
