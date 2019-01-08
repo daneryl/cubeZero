@@ -14,6 +14,8 @@ using namespace std;
 
 Cube::Cube(vec3 _position, PieceColors colors) {
   position = _position;
+  newPosition = _position;
+  originalPosition = _position;
   vertex_colors = colors.get();
 
   OpenGL::generateVAO(&VAO);
@@ -25,6 +27,44 @@ Cube::Cube(vec3 _position, PieceColors colors) {
   OpenGL::bindVAO(0);
 }
 
+void Cube::rotate(char axis, int axisPosition) {
+  /* if (position[axis] === position) { */
+  newPosition = position;
+  if (axis == 'x') {
+    if(position.y == 0 && position.z == 0) {
+      newPosition.y = 2;
+    }
+    if(position.y == 2 && position.z == 0) {
+      newPosition.z = 2;
+    }
+    if(position.y == 2 && position.z == 2) {
+      newPosition.y = 0;
+    }
+    if(position.y == 0 && position.z == 2) {
+      newPosition.z = 0;
+    }
+  }
+
+  if (axis == 'y') {
+    if(position.x == 0 && position.z == 0) {
+      newPosition.z = 2;
+    }
+    if(position.x == 2 && position.z == 0) {
+      newPosition.x = 0;
+    }
+    if(position.x == 2 && position.z == 2) {
+      newPosition.z = 0;
+    }
+    if(position.x == 0 && position.z == 2) {
+      newPosition.x = 2;
+    }
+  }
+
+  /* originalPosition = newPosition; */
+
+  /* } */
+}
+
 void Cube::draw(mat4 MVP) {
   double currentTime = glfwGetTime();
   float deltaTime = float(currentTime - lastTime);
@@ -33,6 +73,6 @@ void Cube::draw(mat4 MVP) {
   OpenGL::bindVAO(VAO);
   glDrawArrays(GL_TRIANGLES, 0, 12 * 3);
   OpenGL::bindVAO(0);
-
+  position = newPosition;
   lastTime = currentTime;
 }

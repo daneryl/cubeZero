@@ -25,20 +25,32 @@ int main(void) {
   //glfwSetKeyCallback(window, key_callback);
   Puzzle rubik = Puzzle(3, 3, 3);
 
+  int R_OLD_STATE = GLFW_RELEASE;
+  int T_OLD_STATE = GLFW_RELEASE;
+
   do {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     computeMatricesFromInputs(window);
     glm::mat4 Projection = getProjectionMatrix();
     glm::mat4 View = getViewMatrix();
 
-    if (glfwGetKey(window, GLFW_KEY_R)) {
+    int R_NEW_STATE = glfwGetKey(window, GLFW_KEY_R);
+    if (R_NEW_STATE == GLFW_PRESS && R_OLD_STATE == GLFW_RELEASE) {
       rubik.move();
     }
-    if (glfwGetKey(window, GLFW_KEY_F)) {
+    R_OLD_STATE = glfwGetKey(window, GLFW_KEY_R);
+
+    int T_NEW_STATE = glfwGetKey(window, GLFW_KEY_T);
+    if (T_NEW_STATE == GLFW_PRESS && T_OLD_STATE == GLFW_RELEASE) {
       rubik.move(-1);
     }
+    T_OLD_STATE = glfwGetKey(window, GLFW_KEY_T);
 
-    rubik.draw(Projection * View * glm::translate(vec3(0, 0, 0)));
+    /* if (glfwGetKey(window, GLFW_KEY_F)) { */
+    /*   rubik.move(-1); */
+    /* } */
+
+    rubik.draw(Projection, View);
 
     glfwSwapBuffers(window);
     glfwPollEvents();

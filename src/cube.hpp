@@ -25,12 +25,21 @@ class Cube {
   float lastTime = 0;
 
  public:
-  float angle = 0;
+  float xangle = 0;
+  float yangle = 0;
+  /* float xrotation = 0.0f; */
+  glm::quat orientation = glm::quat();
+  glm::quat xrotation = glm::quat();
+  glm::quat yrotation = glm::quat();
+  glm::quat zrotation = glm::quat();
   float previousAngle = 0;
   vec3 position;
+  vec3 originalPosition;
+  vec3 newPosition;
   vector<vec3> vertex_colors;
   map<string, vec3> side_colors = BASE_SIDE_COLORS();
   Cube(vec3 position, PieceColors colors);
   void draw(mat4 MVP);
+  void rotate(char axis, int axisPosition);
 };
 #endif
