@@ -27,6 +27,7 @@ int main(void) {
 
   int R_OLD_STATE = GLFW_RELEASE;
   int T_OLD_STATE = GLFW_RELEASE;
+  int F_OLD_STATE = GLFW_RELEASE;
 
   do {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -36,15 +37,21 @@ int main(void) {
 
     int R_NEW_STATE = glfwGetKey(window, GLFW_KEY_R);
     if (R_NEW_STATE == GLFW_PRESS && R_OLD_STATE == GLFW_RELEASE) {
-      rubik.move();
+      rubik.move('x');
     }
     R_OLD_STATE = glfwGetKey(window, GLFW_KEY_R);
 
     int T_NEW_STATE = glfwGetKey(window, GLFW_KEY_T);
     if (T_NEW_STATE == GLFW_PRESS && T_OLD_STATE == GLFW_RELEASE) {
-      rubik.move(-1);
+      rubik.move('y');
     }
     T_OLD_STATE = glfwGetKey(window, GLFW_KEY_T);
+
+    int F_NEW_STATE = glfwGetKey(window, GLFW_KEY_F);
+    if (F_NEW_STATE == GLFW_PRESS && F_OLD_STATE == GLFW_RELEASE) {
+      rubik.move('z');
+    }
+    F_OLD_STATE = glfwGetKey(window, GLFW_KEY_F);
 
     /* if (glfwGetKey(window, GLFW_KEY_F)) { */
     /*   rubik.move(-1); */

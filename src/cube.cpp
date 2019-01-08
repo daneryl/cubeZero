@@ -60,9 +60,20 @@ void Cube::rotate(char axis, int axisPosition) {
     }
   }
 
-  /* originalPosition = newPosition; */
-
-  /* } */
+  if (axis == 'z') {
+    if(position.x == 0 && position.y == 0) {
+      newPosition.y = 2;
+    }
+    if(position.x == 0 && position.y == 2) {
+      newPosition.x = 2;
+    }
+    if(position.x == 2 && position.y == 2) {
+      newPosition.y = 0;
+    }
+    if(position.y == 0 && position.x == 2) {
+      newPosition.x = 0;
+    }
+  }
 }
 
 void Cube::draw(mat4 MVP) {
