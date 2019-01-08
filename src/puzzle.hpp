@@ -54,21 +54,21 @@ class Puzzle {
       mat4 translation = glm::translate(glm::vec3(cube.position.x * 2.1, cube.position.y * 2.1, cube.position.z * 2.1));
       if (cube.position.x == 2 && direction == 'x') {
         if (moving) {
-          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(90.0f), vec3(1.0, 0.0, 0.0))) * cube.orientation;
+          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(90.0f), vec3(1.0, 0.0, 0.0)) * cube.orientation);
           cube.rotate('x', 2);
         }
       }
 
       if (cube.position.y == 2 && direction == 'y') {
         if (moving) {
-          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(90.0f), vec3(0.0, 1.0, 0.0))) * cube.orientation;
+          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(90.0f), vec3(0.0, 1.0, 0.0)) * cube.orientation);
           cube.rotate('y', 2);
         }
       }
 
       if (cube.position.z == 2 && direction == 'z') {
         if (moving) {
-          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(-90.0f), vec3(0.0, 0.0, 1.0))) * cube.orientation;
+          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(-90.0f), vec3(0.0, 0.0, 1.0)) * cube.orientation);
           cube.rotate('z', 2);
         }
       }
