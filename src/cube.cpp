@@ -77,13 +77,9 @@ void Cube::rotate(char axis, int axisPosition) {
 }
 
 void Cube::draw(mat4 MVP) {
-  double currentTime = glfwGetTime();
-  float deltaTime = float(currentTime - lastTime);
-
   OpenGL::uniformMatrix(MVP);
   OpenGL::bindVAO(VAO);
   glDrawArrays(GL_TRIANGLES, 0, 12 * 3);
   OpenGL::bindVAO(0);
   position = newPosition;
-  lastTime = currentTime;
 }
