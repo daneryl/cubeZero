@@ -84,14 +84,14 @@ SCENARIO("Move", "[Move]") {
       REQUIRE(move.axisPosition == 0);
       REQUIRE(move.angle == 90.0);
     }
-    THEN("b should initialize move properties as y axis, position2, angle -90") {
+    THEN("b should initialize move properties as z axis, position -2, angle -90") {
       Move move("b");
 
       REQUIRE(glm::to_string(move.axis) == glm::to_string(vec3(0, 0, 1)));
       REQUIRE(move.axisPosition == -2);
       REQUIRE(move.angle == -90.0);
     }
-    THEN("b' should initialize move properties as y axis, position2, angle 90") {
+    THEN("b' should initialize move properties as z axis, position -2, angle 90") {
       Move move("b'");
 
       REQUIRE(glm::to_string(move.axis) == glm::to_string(vec3(0, 0, 1)));
