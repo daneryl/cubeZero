@@ -51,31 +51,17 @@ class Puzzle {
 
   void draw(mat4 Projection, mat4 View) {
     Move move(movement);
+    int axis = 0;
+    if (movement[0] == 'f') {
+      axis = 2;
+    }
+    if (movement[0] == 'd' || movement[0] == 't') {
+      axis = 1;
+    }
     for (auto&& cube : cubes) {
       mat4 translation = glm::translate(glm::vec3(cube.position.x * 2.1, cube.position.y * 2.1, cube.position.z * 2.1));
 
-      /* if (cube.position[move.axis] == move.axisPosition) { */
-      /*   if (moving) { */
-      /*     cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axis) * cube.orientation); */
-      /*     cube.rotate(move); */
-      /*   } */
-      /* } */
-
-      if (cube.position.x == 2 && movement[0] == 'r') {
-        if (moving) {
-          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axis) * cube.orientation);
-          cube.rotate(move);
-        }
-      }
-
-      if (cube.position.y == 2 && movement[0] == 't') {
-        if (moving) {
-          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axis) * cube.orientation);
-          cube.rotate(move);
-        }
-      }
-
-      if (cube.position.z == 0 && movement[0] == 'f') {
+      if (cube.position[axis] == move.axisPosition) {
         if (moving) {
           cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axis) * cube.orientation);
           cube.rotate(move);
