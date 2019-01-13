@@ -57,8 +57,8 @@ void computeMatricesFromInputs(GLFWwindow* window) {
   float Y = 14;
 
   /* float radius = 50.0f; */
-  /* float X = 15; */
-  /* float Z = 5; */
+  /* float X = 5; */
+  /* float Z = 25; */
   /* float Y = 5; */
 
 
