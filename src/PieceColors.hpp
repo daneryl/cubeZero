@@ -24,14 +24,16 @@ class PieceColors {
   PieceColors(vec3 position, vec3 maxPosition) {
     map<string, vec3> side_colors = SIDE_COLORS();
 
-    if (position.x == maxPosition.x) colors["front"] = side_colors["front"];
-    if (position.x == 1) colors["back"] = side_colors["back"];
+    vec3 max = maxPosition - vec3(1, 1, 1);
 
-    if (position.y == maxPosition.y) colors["top"] = side_colors["top"];
-    if (position.y == 1) colors["bottom"] = side_colors["bottom"];
+    if (position.x == max.x) colors["right"] = side_colors["right"];
+    if (position.x == 0) colors["left"] = side_colors["left"];
 
-    if (position.z == maxPosition.z) colors["left"] = side_colors["left"];
-    if (position.z == 1) colors["right"] = side_colors["right"];
+    if (position.y == max.y) colors["top"] = side_colors["top"];
+    if (position.y == 0) colors["bottom"] = side_colors["bottom"];
+
+    if (position.z == -max.z) colors["back"] = side_colors["back"];
+    if (position.z == 0) colors["front"] = side_colors["front"];
   }
 
   vector<vec3> get() {

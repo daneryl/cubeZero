@@ -21,7 +21,7 @@ class Puzzle {
   std::vector<Cube> cubes;
   bool moving = false;
   int moveDegrees = 90;
-  char direction;
+  string movement;
   int x;
   int y;
   int z;
@@ -34,42 +34,51 @@ class Puzzle {
     z = numZ;
     for (int x = 0; x < numX; ++x) {
       for (int y = 0; y < numY; ++y) {
-        for (int z = 0; z < numZ; ++z) {
-          PieceColors piece(vec3(x + 1, y + 1, z + 1), vec3(numX, numY, numZ));
+        for (int z = 0; z > -numZ; --z) {
+          PieceColors piece(vec3(x, y, z), vec3(numX, numY, numZ));
           cubes.push_back(Cube(vec3(x, y, z), piece));
         }
       }
     }
   }
 
-  void move(int dir) {
+  void move(string _move) {
     if (!moving) {
-      direction = dir;
+      movement = _move;
       moving = true;
     }
   }
 
   void draw(mat4 Projection, mat4 View) {
+    Move move(movement);
     for (auto&& cube : cubes) {
       mat4 translation = glm::translate(glm::vec3(cube.position.x * 2.1, cube.position.y * 2.1, cube.position.z * 2.1));
-      if (cube.position.x == 2 && direction == 'x') {
+
+      /* if (cube.position[move.axis] == move.axisPosition) { */
+      /*   if (moving) { */
+      /*     cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axis) * cube.orientation); */
+      /*     cube.rotate(move); */
+      /*   } */
+      /* } */
+
+      if (cube.position.x == 2 && movement[0] == 'r') {
         if (moving) {
-          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(90.0f), vec3(1.0, 0.0, 0.0)) * cube.orientation);
-          cube.rotate('x', 2);
+          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axis) * cube.orientation);
+          cube.rotate(move);
         }
       }
 
-      if (cube.position.y == 2 && direction == 'y') {
+      if (cube.position.y == 2 && movement[0] == 't') {
         if (moving) {
-          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(90.0f), vec3(0.0, 1.0, 0.0)) * cube.orientation);
-          cube.rotate('y', 2);
+          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axis) * cube.orientation);
+          cube.rotate(move);
         }
       }
 
-      if (cube.position.z == 2 && direction == 'z') {
+      if (cube.position.z == 0 && movement[0] == 'f') {
         if (moving) {
-          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(-90.0f), vec3(0.0, 0.0, 1.0)) * cube.orientation);
-          cube.rotate('z', 2);
+          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axis) * cube.orientation);
+          cube.rotate(move);
         }
       }
 

@@ -10,6 +10,8 @@
 
 #include "CubeVertexInfo.hpp"
 #include "PieceColors.hpp"
+#include "Move.hpp"
+#include "Piece.hpp"
 
 using namespace std;
 using namespace glm;
@@ -32,6 +34,7 @@ class Cube {
   glm::quat xrotation = glm::quat();
   glm::quat yrotation = glm::quat();
   glm::quat zrotation = glm::quat();
+  Piece piece = Piece(vec3(0, 0, 0), vec3(3,3,3));
   float previousAngle = 0;
   vec3 position;
   vec3 originalPosition;
@@ -40,6 +43,6 @@ class Cube {
   map<string, vec3> side_colors = BASE_SIDE_COLORS();
   Cube(vec3 position, PieceColors colors);
   void draw(mat4 MVP);
-  void rotate(char axis, int axisPosition);
+  void rotate(Move move);
 };
 #endif

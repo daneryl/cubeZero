@@ -14,33 +14,37 @@ namespace constants {
 // clang-format off
   const vector<vec3> CUBE_VERTEX_POSTIIONS = {
     //front side
+    vec3(-1.0f, 1.0f, 1.0f),
+    vec3(-1.0f,-1.0f, 1.0f),
+    vec3(1.0f,-1.0f, 1.0f),
+    vec3(1.0f, 1.0f, 1.0f),
+    vec3(-1.0f, 1.0f, 1.0f),
+    vec3(1.0f,-1.0f, 1.0f),
+    //
+    //right side
     vec3(1.0f,-1.0f,-1.0f),
     vec3(1.0f, 1.0f, 1.0f),
     vec3(1.0f,-1.0f, 1.0f),
     vec3(1.0f, 1.0f, 1.0f),
     vec3(1.0f,-1.0f,-1.0f),
     vec3(1.0f, 1.0f,-1.0f),
-    //right side
+    //
+    //back side
     vec3(1.0f, 1.0f,-1.0f),
     vec3(1.0f,-1.0f,-1.0f),
     vec3(-1.0f,-1.0f,-1.0f),
     vec3(1.0f, 1.0f,-1.0f), 
     vec3(-1.0f,-1.0f,-1.0f),
     vec3(-1.0f, 1.0f,-1.0f),
-    //back side
+    //
+    //left side
     vec3(-1.0f,-1.0f,-1.0f),
     vec3(-1.0f, 1.0f, 1.0f),
     vec3(-1.0f, 1.0f,-1.0f),
     vec3(-1.0f,-1.0f,-1.0f),
     vec3(-1.0f,-1.0f, 1.0f),
     vec3(-1.0f, 1.0f, 1.0f),
-    //left side
-    vec3(-1.0f, 1.0f, 1.0f),
-    vec3(-1.0f,-1.0f, 1.0f),
-    vec3(1.0f,-1.0f, 1.0f),
-    vec3(1.0f, 1.0f, 1.0f),
-    vec3(-1.0f, 1.0f, 1.0f),
-    vec3(1.0f,-1.0f, 1.0f),
+    //
     //top side
     vec3(1.0f, 1.0f, 1.0f),
     vec3(-1.0f, 1.0f,-1.0f),
@@ -48,6 +52,7 @@ namespace constants {
     vec3(1.0f, 1.0f, 1.0f),
     vec3(1.0f, 1.0f,-1.0f),
     vec3(-1.0f, 1.0f,-1.0f),
+    //
     //bottom side
     vec3(1.0f,-1.0f, 1.0f),
     vec3(-1.0f,-1.0f,-1.0f),
