@@ -51,25 +51,17 @@ class Puzzle {
 
   void draw(mat4 Projection, mat4 View) {
     Move move(movement);
-    int axis = 0;
-    if (movement[0] == 'f') {
-      axis = 2;
-    }
-    if (movement[0] == 'd' || movement[0] == 't') {
-      axis = 1;
-    }
     for (auto&& cube : cubes) {
       mat4 translation = glm::translate(glm::vec3(cube.position.x * 2.1, cube.position.y * 2.1, cube.position.z * 2.1));
 
-      if (cube.position[axis] == move.axisPosition) {
+      if (cube.position[move.axis] == move.axisPosition) {
         if (moving) {
-          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axis) * cube.orientation);
+          cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axisVector) * cube.orientation);
           cube.rotate(move);
         }
       }
 
-      translation *= glm::mat4_cast(cube.orientation);
-      cube.draw(Projection * View * translation);
+      cube.draw(Projection * View * translation * glm::mat4_cast(cube.orientation));
     }
 
     moving = false;

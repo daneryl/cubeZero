@@ -14,7 +14,8 @@ class Move
 
   public:
     Move(string move);
-    vec3 axis;
+    int axis;
+    vec3 axisVector;
     int axisPosition;
     float angle;
 };

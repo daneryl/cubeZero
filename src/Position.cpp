@@ -7,18 +7,21 @@
 
 #include "CubeVertexInfo.hpp"
 #include "OpenGL.hpp"
-#include "Piece.hpp"
+#include "Position.hpp"
 
 using namespace glm;
 using namespace std;
 
-Piece::Piece(vec3 _position, vec3 _puzzleSize) {
-  position = _position;
+Position::Position(vec3 coordinates, vec3 _puzzleSize) {
+  x = coordinates.x;
+  y = coordinates.y;
+  z = coordinates.z;
   puzzleSize = _puzzleSize;
 }
 
-void Piece::rotate(Move move) {
+void Position::rotate(Move move) {
   float axisTranslation = glm::floor(puzzleSize.x / 2);
+  vec3 position = vec3(x, y, z);
 
   glm::mat4 rotationMat(1); // Creates a identity matrix
   position += vec3(-axisTranslation, -axisTranslation , axisTranslation);
@@ -27,7 +30,7 @@ void Piece::rotate(Move move) {
   position += glm::round(vec3(axisTranslation, axisTranslation , -axisTranslation));
 
 
-  position.x = glm::floor(position.x * 5 + 0.5) / 5;
-  position.y = glm::floor(position.y * 5 + 0.5) / 5;
-  position.z = glm::floor(position.z * 5 + 0.5) / 5;
+  x = int(position.x);
+  y = int(position.y);
+  z = int(position.z);
 }

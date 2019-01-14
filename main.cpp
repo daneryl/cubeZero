@@ -29,6 +29,7 @@ int main(void) {
   int T_OLD_STATE = GLFW_RELEASE;
   int F_OLD_STATE = GLFW_RELEASE;
   int D_OLD_STATE = GLFW_RELEASE;
+  int B_OLD_STATE = GLFW_RELEASE;
 
   do {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -59,6 +60,12 @@ int main(void) {
       rubik.move("d");
     }
     D_OLD_STATE = glfwGetKey(window, GLFW_KEY_D);
+
+    int B_NEW_STATE = glfwGetKey(window, GLFW_KEY_B);
+    if (B_NEW_STATE == GLFW_PRESS && B_OLD_STATE == GLFW_RELEASE) {
+      rubik.move("b");
+    }
+    B_OLD_STATE = glfwGetKey(window, GLFW_KEY_B);
 
     /* if (glfwGetKey(window, GLFW_KEY_F)) { */
     /*   rubik.move(-1); */
