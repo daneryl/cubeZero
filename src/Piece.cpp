@@ -13,21 +13,10 @@ using namespace glm;
 using namespace std;
 
 Piece::Piece(vec3 _position, vec3 _puzzleSize) {
-  position = _position;
+  position = Position(_position, _puzzleSize);
   puzzleSize = _puzzleSize;
 }
 
 void Piece::rotate(Move move) {
-  float axisTranslation = glm::floor(puzzleSize.x / 2);
-
-  glm::mat4 rotationMat(1); // Creates a identity matrix
-  position += vec3(-axisTranslation, -axisTranslation , axisTranslation);
-  rotationMat = glm::rotate(rotationMat, glm::radians(move.angle), move.axisVector);
-  position = glm::vec3(rotationMat * glm::vec4(position, 1.0));
-  position += glm::round(vec3(axisTranslation, axisTranslation , -axisTranslation));
-
-
-  position.x = glm::floor(position.x * 5 + 0.5) / 5;
-  position.y = glm::floor(position.y * 5 + 0.5) / 5;
-  position.z = glm::floor(position.z * 5 + 0.5) / 5;
+  position.rotate(move);
 }

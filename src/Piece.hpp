@@ -10,7 +10,7 @@
 
 #include "CubeVertexInfo.hpp"
 #include "Move.hpp"
-#include "Piece.hpp"
+#include "Position.hpp"
 
 using namespace std;
 using namespace glm;
@@ -21,7 +21,7 @@ class Piece {
    
  public:
    Piece(vec3 _position, vec3 _puzzleSize);
-   vec3 position;
+   Position position = Position(vec3(0, 0, 0), vec3(0, 0, 0));
    vec3 puzzleSize;
    void rotate(Move move);
 };

@@ -32,7 +32,7 @@ Cube::Cube(vec3 _position, PieceColors colors) {
 
 void Cube::rotate(Move move) {
   piece.rotate(move);
-  newPosition = piece.position;
+  newPosition = vec3(piece.position.x, piece.position.y, piece.position.z);
 }
 
 void Cube::draw(mat4 MVP) {

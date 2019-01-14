@@ -29,8 +29,7 @@ void Position::rotate(Move move) {
   position = glm::vec3(rotationMat * glm::vec4(position, 1.0));
   position += glm::round(vec3(axisTranslation, axisTranslation , -axisTranslation));
 
-
-  x = int(position.x);
-  y = int(position.y);
-  z = int(position.z);
+  x = (int)glm::floor(position.x * 5 + 0.5) / 5;
+  y = (int)glm::floor(position.y * 5 + 0.5) / 5;
+  z = (int)glm::floor(position.z * 5 + 0.5) / 5;
 }

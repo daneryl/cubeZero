@@ -170,7 +170,6 @@ SCENARIO("Position", "[Position]") {
 
         position.rotate(rPrimeMove);
         REQUIRE(position_string(position) == position_string(vec3(0, 1, 0)));
-        /* REQUIRE(glm::to_string(position.position) == glm::to_string(vec3(0, 1, 0))); */
 
         position.rotate(rMove);
         position.rotate(rMove);
