@@ -61,8 +61,13 @@ void OpenGL::init() {
     glfwTerminate();
   }
   glfwSetInputMode(OpenGL::window, GLFW_STICKY_KEYS, GL_TRUE);
-  //cout << GetCurrentWorkingDir() << std::endl;
-  OpenGL::program = LoadShaders("../src/vertex.shader", "../src/fragment.shader");
+
+  string fullPath = __FILE__;
+  string dirname = fullPath.substr(0, fullPath.find_last_of("\\/"));
+
+  string vertex = dirname + "/../vertex.shader";
+  string fragment = dirname + "/../fragment.shader";
+  OpenGL::program = LoadShaders(vertex, fragment);
   OpenGL::matrixId = glGetUniformLocation(OpenGL::program, "MVP");
 
   glUseProgram(OpenGL::program);

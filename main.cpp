@@ -6,6 +6,9 @@
 #include "src/OpenGL.hpp"
 #include "src/controls.hpp"
 #include "src/puzzle.hpp"
+#include <libgen.h>
+#include<cstring>
+#include<stdlib.h>
 
 #define GLSL(src) #src
 
