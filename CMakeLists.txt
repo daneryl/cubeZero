@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.7)
+project(pythonCube)
 
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
@@ -9,6 +10,7 @@ set(GLM_SOURCE_DIR "external/glm")
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 add_subdirectory(${GLFW_SOURCE_DIR} ${GLEW_SOURCE_DIR})
 
@@ -25,6 +27,10 @@ file(GLOB OPEN_GL ${PROJECT_SOURCE_DIR}/src/OpenGL/OpenGL.cpp)
 
 add_executable(cubeZero main.cpp  ${OPEN_GL} ${SRC_FILES})
 target_link_libraries(cubeZero glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
+
+add_subdirectory(external/pybind11)
+pybind11_add_module(pythonCube pythonCube.cpp ${OPEN_GL} ${SRC_FILES} ${GLEW_LIBRARY})
+target_link_libraries(${PROJECT_NAME} PUBLIC glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 
 option(BUILD_TESTS "Determines whether to build tests." OFF)
 
