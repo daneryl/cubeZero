@@ -39,6 +39,7 @@ class Cube {
   vec3 position;
   vec3 originalPosition;
   vec3 newPosition;
+  PieceColors colors;
   vector<vec3> vertex_colors;
   map<string, vec3> side_colors = BASE_SIDE_COLORS();
   Cube(vec3 position, PieceColors colors);

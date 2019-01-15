@@ -64,6 +64,14 @@ class Puzzle {
       cube.draw(Projection * View * translation * glm::mat4_cast(cube.orientation));
     }
 
+    /* if (moving) { */
+    /*   for (auto&& cube : cubes) { */
+    /*     if (cube.position.y == 2) { */
+    /*       cout << cube.colors.colorNames["top"] << "\n\n"; */
+    /*     } */
+    /*   } */
+    /* } */
+
     moving = false;
   }
 };

@@ -13,9 +13,10 @@
 using namespace glm;
 using namespace std;
 
-Cube::Cube(vec3 _position, PieceColors colors) {
+Cube::Cube(vec3 _position, PieceColors _colors) {
   Piece _piece(_position, vec3(3,3,3));
   piece = _piece;
+  colors = _colors;
   position = _position;
   newPosition = _position;
   originalPosition = _position;
@@ -32,6 +33,7 @@ Cube::Cube(vec3 _position, PieceColors colors) {
 
 void Cube::rotate(Move move) {
   piece.rotate(move);
+  colors.rotate(move);
   newPosition = vec3(piece.position.x, piece.position.y, piece.position.z);
 }
 

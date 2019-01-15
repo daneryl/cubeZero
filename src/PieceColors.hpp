@@ -9,6 +9,7 @@
 #include <vector>
 
 #include "CubeVertexInfo.hpp"
+#include "../src/Move.hpp"
 
 using namespace std;
 using namespace glm;
@@ -18,6 +19,9 @@ class PieceColors {
  private:
  public:
   map<string, vec3> colors = BASE_SIDE_COLORS();
+  map<string, string> color_names_map = COLOR_NAMES();
+  map<string, vec3> original_colors = BASE_SIDE_COLORS();
+  map<string, string> colorNames;
 
   PieceColors() {}
 
@@ -26,24 +30,77 @@ class PieceColors {
 
     vec3 max = maxPosition - vec3(1, 1, 1);
 
-    if (position.x == max.x) colors["right"] = side_colors["right"];
-    if (position.x == 0) colors["left"] = side_colors["left"];
+    if (position.x == max.x) original_colors["right"] = side_colors["right"];
+    if (position.x == 0) original_colors["left"] = side_colors["left"];
 
-    if (position.y == max.y) colors["top"] = side_colors["top"];
-    if (position.y == 0) colors["bottom"] = side_colors["bottom"];
+    if (position.y == max.y) original_colors["top"] = side_colors["top"];
+    if (position.y == 0) original_colors["bottom"] = side_colors["bottom"];
 
-    if (position.z == -max.z) colors["back"] = side_colors["back"];
-    if (position.z == 0) colors["front"] = side_colors["front"];
+    if (position.z == -max.z) original_colors["back"] = side_colors["back"];
+    if (position.z == 0) original_colors["front"] = side_colors["front"];
+
+    colors = original_colors;
+    /* colorNames["back"] = color_names_map[to_string(colors["back"])]; */
+    /* colorNames["top"] = color_names_map[to_string(colors["top"])]; */
+    /* colorNames["bottom"] = color_names_map[to_string(colors["bottom"])]; */
+    /* colorNames["front"] = color_names_map[to_string(colors["front"])]; */
+    /* colorNames["right"] = color_names_map[to_string(colors["right"])]; */
+    /* colorNames["left"] = color_names_map[to_string(colors["left"])]; */
   }
 
   vector<vec3> get() {
     vector<vec3> vertex_colors;
     for (auto side : COLOR_ORDER) {
       for (int x = 0; x <= 5; ++x) {
-        vertex_colors.push_back(colors[side]);
+        vertex_colors.push_back(original_colors[side]);
       }
     }
     return vertex_colors;
+  }
+
+  void rotate(Move move) {
+    map<string, vec3> previous_colors = colors;
+
+    if (move.axis == 0) {
+      colors["top"] = previous_colors["front"];
+      colors["back"] = previous_colors["top"];
+      colors["bottom"] = previous_colors["back"];
+      colors["front"] = previous_colors["bottom"];
+
+      if (move.angle == 90.0f) {
+        colors["front"] = previous_colors["top"];
+        colors["bottom"] = previous_colors["front"];
+      }
+    }
+
+    if (move.axis == 1) {
+      colors["front"] = previous_colors["right"];
+      colors["left"] = previous_colors["front"];
+      colors["back"] = previous_colors["left"];
+      colors["right"] = previous_colors["back"];
+      if (move.angle == 90.0f) {
+        colors["back"] = previous_colors["right"];
+        colors["right"] = previous_colors["front"];
+      }
+    }
+
+    if (move.axis == 2) {
+      colors["bottom"] = previous_colors["right"];
+      colors["right"] = previous_colors["top"];
+      colors["left"] = previous_colors["bottom"];
+      colors["top"] = previous_colors["left"];
+      if (move.angle == 90.0f) {
+        colors["top"] = previous_colors["right"];
+        colors["left"] = previous_colors["top"];
+      }
+    }
+
+    colorNames["back"] = color_names_map[to_string(colors["back"])];
+    colorNames["top"] = color_names_map[to_string(colors["top"])];
+    colorNames["bottom"] = color_names_map[to_string(colors["bottom"])];
+    colorNames["front"] = color_names_map[to_string(colors["front"])];
+    colorNames["right"] = color_names_map[to_string(colors["right"])];
+    colorNames["left"] = color_names_map[to_string(colors["left"])];
   }
 };
 #endif
