@@ -1,5 +1,5 @@
 build/*
-!build/README
+!build/index.html
 xcode/
 *.gch
 *.gch*
