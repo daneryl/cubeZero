@@ -4,6 +4,7 @@ let g:neoinclude#_paths = [
 
 let g:deoplete#sources#clang#clang_complete_database = '/Users/daneryl/workspace/cubeZero'
 
+" let g:ale_cpp_clang_executable = 'clangtidy'
 let g:ale_cpp_clang_options =  
             \ '-std=c++14 -Wall
             \ -isystem /usr/local/Cellar/glew/1.13.0/include/
