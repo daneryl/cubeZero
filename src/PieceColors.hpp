@@ -17,6 +17,12 @@ using namespace constants;
 
 class PieceColors {
  private:
+  void updateColorSideNames() {
+    for (auto side : COLOR_ORDER) {
+      colorNames[side] = color_names_map[to_string(colors[side])];
+    }
+  }
+
  public:
   map<string, vec3> colors = BASE_SIDE_COLORS();
   map<string, string> color_names_map = COLOR_NAMES();
@@ -40,12 +46,7 @@ class PieceColors {
     if (position.z == 0) original_colors["front"] = side_colors["front"];
 
     colors = original_colors;
-    /* colorNames["back"] = color_names_map[to_string(colors["back"])]; */
-    /* colorNames["top"] = color_names_map[to_string(colors["top"])]; */
-    /* colorNames["bottom"] = color_names_map[to_string(colors["bottom"])]; */
-    /* colorNames["front"] = color_names_map[to_string(colors["front"])]; */
-    /* colorNames["right"] = color_names_map[to_string(colors["right"])]; */
-    /* colorNames["left"] = color_names_map[to_string(colors["left"])]; */
+    this->updateColorSideNames();
   }
 
   vector<vec3> get() {
@@ -95,12 +96,7 @@ class PieceColors {
       }
     }
 
-    colorNames["back"] = color_names_map[to_string(colors["back"])];
-    colorNames["top"] = color_names_map[to_string(colors["top"])];
-    colorNames["bottom"] = color_names_map[to_string(colors["bottom"])];
-    colorNames["front"] = color_names_map[to_string(colors["front"])];
-    colorNames["right"] = color_names_map[to_string(colors["right"])];
-    colorNames["left"] = color_names_map[to_string(colors["left"])];
+    this->updateColorSideNames();
   }
 };
 #endif

@@ -9,6 +9,7 @@ using namespace constants;
 SCENARIO("PieceColors", "[PieceColors]") {
   map<string, vec3> side_colors = SIDE_COLORS();
   map<string, vec3> base_side_colors = BASE_SIDE_COLORS();
+
   GIVEN("Given PiecePosition and maxPieces") {
 
     WHEN("piece its in the front") {
@@ -82,6 +83,25 @@ SCENARIO("PieceColors", "[PieceColors]") {
         REQUIRE(to_string(expanded[34]) == to_string(vec3(0.0f, 0.0f, 0.0f)));
         REQUIRE(to_string(expanded[35]) == to_string(vec3(0.0f, 0.0f, 0.0f)));
       }
+    }
+  }
+
+  WHEN("instantiation") {
+    THEN("shoul initialize colorNames") {
+      PieceColors piece(vec3(2, 2, 0), vec3(3, 3, 3));
+      REQUIRE(piece.colorNames["top"] == "yellow");
+      REQUIRE(piece.colorNames["front"] == "red");
+      REQUIRE(piece.colorNames["right"] == "green");
+
+      PieceColors piece2(vec3(0, 0, 0), vec3(3, 3, 3));
+      REQUIRE(piece2.colorNames["bottom"] == "white");
+      REQUIRE(piece2.colorNames["front"] == "red");
+      REQUIRE(piece2.colorNames["left"] == "blue");
+
+      PieceColors bottomBackCorner(vec3(0, 0, -2), vec3(3, 3, 3));
+      REQUIRE(bottomBackCorner.colorNames["back"] == "orange");
+      REQUIRE(bottomBackCorner.colorNames["left"] == "blue");
+      REQUIRE(bottomBackCorner.colorNames["bottom"] == "white");
     }
   }
 
