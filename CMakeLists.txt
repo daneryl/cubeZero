@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.7)
 
 find_package(OpenGL REQUIRED)
 find_package(GLEW REQUIRED)
+find_package(cppzmq)
 
 set(GLFW_SOURCE_DIR "external/glfw")
 set(GLM_SOURCE_DIR "external/glm")
@@ -23,7 +24,10 @@ include_directories(
 file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB OPEN_GL ${PROJECT_SOURCE_DIR}/src/OpenGL/OpenGL.cpp)
 
-add_executable(cubeZero main.cpp  ${OPEN_GL} ${SRC_FILES})
+add_executable(server server.cpp ${OPEN_GL} ${SRC_FILES})
+target_link_libraries(server glfw cppzmq ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
+
+add_executable(cubeZero main.cpp ${OPEN_GL} ${SRC_FILES})
 target_link_libraries(cubeZero glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 
 option(BUILD_TESTS "Determines whether to build tests." OFF)
