@@ -6,12 +6,15 @@ find_package(cppzmq)
 
 set(GLFW_SOURCE_DIR "external/glfw")
 set(GLM_SOURCE_DIR "external/glm")
+set(JSON_SOURCE_DIR "external/json")
+set(JSON_BuildTests OFF CACHE INTERNAL "")
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(${GLFW_SOURCE_DIR} ${GLEW_SOURCE_DIR})
+add_subdirectory(${JSON_SOURCE_DIR})
 
 include_directories(
   ${GLFW_SOURCE_DIR}/include
@@ -25,7 +28,7 @@ file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB OPEN_GL ${PROJECT_SOURCE_DIR}/src/OpenGL/OpenGL.cpp)
 
 add_executable(server server.cpp ${OPEN_GL} ${SRC_FILES})
-target_link_libraries(server glfw cppzmq ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
+target_link_libraries(server glfw cppzmq nlohmann_json::nlohmann_json ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 
 add_executable(cubeZero main.cpp ${OPEN_GL} ${SRC_FILES})
 target_link_libraries(cubeZero glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})

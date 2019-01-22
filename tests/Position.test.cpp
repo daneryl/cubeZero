@@ -33,23 +33,23 @@ SCENARIO("Position", "[Position]") {
         vec3 puzzleSize = vec3(3, 3, 3);
         Position position(vec3(0, 2, 0), puzzleSize);
 
-        Move tMove("t");
-        Move tPrimeMove("t'");
+        Move uMove("u");
+        Move uPrimeMove("u'");
 
-        position.rotate(tMove);
+        position.rotate(uMove);
         REQUIRE(position_string(position) == position_string(vec3(0, 2, -2)));
 
-        position.rotate(tPrimeMove);
+        position.rotate(uPrimeMove);
         REQUIRE(position_string(position) == position_string(vec3(0, 2, 0)));
 
-        position.rotate(tMove);
-        position.rotate(tMove);
+        position.rotate(uMove);
+        position.rotate(uMove);
         REQUIRE(position_string(position) == position_string(vec3(2, 2, -2)));
 
-        position.rotate(tMove);
+        position.rotate(uMove);
         REQUIRE(position_string(position) == position_string(vec3(2, 2, 0)));
 
-        position.rotate(tMove);
+        position.rotate(uMove);
         REQUIRE(position_string(position) == position_string(vec3(0, 2, 0)));
       }
     }

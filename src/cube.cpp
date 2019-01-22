@@ -35,6 +35,7 @@ void Cube::rotate(Move move) {
   piece.rotate(move);
   colors.rotate(move);
   newPosition = vec3(piece.position.x, piece.position.y, piece.position.z);
+  position = newPosition;
 }
 
 void Cube::draw(mat4 MVP) {
@@ -42,5 +43,5 @@ void Cube::draw(mat4 MVP) {
   OpenGL::bindVAO(VAO);
   glDrawArrays(GL_TRIANGLES, 0, 12 * 3);
   OpenGL::bindVAO(0);
-  position = newPosition;
+  /* position = newPosition; */
 }

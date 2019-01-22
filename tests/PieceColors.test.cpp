@@ -161,64 +161,102 @@ SCENARIO("PieceColors", "[PieceColors]") {
       REQUIRE(piece.colorNames["top"] == "yellow");
       REQUIRE(piece.colorNames["front"] == "red");
     }
-  }
 
-  WHEN("rotating on y axis (top right corner)") {
     THEN("should track the color rotation") {
-      PieceColors piece(vec3(2, 2, 0), vec3(3, 3, 3));
-      Move tMove("t");
-      Move tPrimeMove("t'");
+      PieceColors piece(vec3(2, 2, -2), vec3(3, 3, 3));
+
+      Move rPrimeMove("r'");
 
       REQUIRE(piece.colors == piece.original_colors);
 
       map<string, vec3> previous_colors = piece.colors;
 
-      piece.rotate(tMove);
+      piece.rotate(rPrimeMove);
+      REQUIRE(piece.colorNames["front"] == "yellow");
+      REQUIRE(piece.colorNames["top"] == "orange");
+
+      piece.rotate(rPrimeMove);
+      piece.rotate(rPrimeMove);
+      piece.rotate(rPrimeMove);
+      REQUIRE(piece.colors == piece.original_colors);
+    }
+  }
+
+  WHEN("rotating on y axis (top right corner)") {
+    THEN("should track the color rotation") {
+      PieceColors piece(vec3(2, 2, 0), vec3(3, 3, 3));
+      Move uMove("u");
+      Move uPrimeMove("u'");
+
+      REQUIRE(piece.colors == piece.original_colors);
+
+      map<string, vec3> previous_colors = piece.colors;
+
+      piece.rotate(uMove);
       REQUIRE(piece.colorNames["front"] == "green");
       REQUIRE(piece.colorNames["left"] == "red");
       REQUIRE(piece.colorNames["top"] == "yellow");
 
-      piece.rotate(tMove);
+      piece.rotate(uMove);
       REQUIRE(piece.colorNames["back"] == "red");
       REQUIRE(piece.colorNames["left"] == "green");
       REQUIRE(piece.colorNames["top"] == "yellow");
 
-      piece.rotate(tMove);
+      piece.rotate(uMove);
       REQUIRE(piece.colorNames["back"] == "green");
       REQUIRE(piece.colorNames["right"] == "red");
       REQUIRE(piece.colorNames["top"] == "yellow");
 
-      piece.rotate(tMove);
+      piece.rotate(uMove);
       REQUIRE(piece.colorNames["front"] == "red");
       REQUIRE(piece.colorNames["right"] == "green");
       REQUIRE(piece.colorNames["top"] == "yellow");
 
-      piece.rotate(tPrimeMove);
+      piece.rotate(uPrimeMove);
       REQUIRE(piece.colorNames["back"] == "green");
       REQUIRE(piece.colorNames["right"] == "red");
       REQUIRE(piece.colorNames["top"] == "yellow");
 
-      piece.rotate(tPrimeMove);
+      piece.rotate(uPrimeMove);
       REQUIRE(piece.colorNames["left"] == "green");
       REQUIRE(piece.colorNames["back"] == "red");
       REQUIRE(piece.colorNames["top"] == "yellow");
 
-      piece.rotate(tPrimeMove);
+      piece.rotate(uPrimeMove);
       REQUIRE(piece.colorNames["front"] == "green");
       REQUIRE(piece.colorNames["left"] == "red");
       REQUIRE(piece.colorNames["top"] == "yellow");
 
-      piece.rotate(tPrimeMove);
+      piece.rotate(uPrimeMove);
       REQUIRE(piece.colorNames["right"] == "green");
       REQUIRE(piece.colorNames["front"] == "red");
       REQUIRE(piece.colorNames["top"] == "yellow");
 
       previous_colors = piece.colors;
-      piece.rotate(tPrimeMove);
-      piece.rotate(tMove);
+      piece.rotate(uPrimeMove);
+      piece.rotate(uMove);
       REQUIRE(piece.colorNames["right"] == "green");
       REQUIRE(piece.colorNames["front"] == "red");
       REQUIRE(piece.colorNames["top"] == "yellow");
+    }
+
+    THEN("should track the color rotation") {
+      PieceColors piece(vec3(2, 2, -2), vec3(3, 3, 3));
+
+      Move uPrimeMove("u'");
+
+      REQUIRE(piece.colors == piece.original_colors);
+
+      map<string, vec3> previous_colors = piece.colors;
+
+      piece.rotate(uPrimeMove);
+      REQUIRE(piece.colorNames["left"] == "orange");
+      REQUIRE(piece.colorNames["back"] == "green");
+
+      piece.rotate(uPrimeMove);
+      piece.rotate(uPrimeMove);
+      piece.rotate(uPrimeMove);
+      REQUIRE(piece.colors == piece.original_colors);
     }
   }
 
@@ -261,6 +299,26 @@ SCENARIO("PieceColors", "[PieceColors]") {
       REQUIRE(piece.colorNames["right"] == "green");
       REQUIRE(piece.colorNames["top"] == "yellow");
     }
+
+    THEN("should track the color rotation") {
+      PieceColors piece(vec3(2, 0, -2), vec3(3, 3, 3));
+
+      Move bMove("b");
+
+      REQUIRE(piece.colors == piece.original_colors);
+
+      map<string, vec3> previous_colors = piece.colors;
+
+      piece.rotate(bMove);
+      REQUIRE(piece.colorNames["right"] == "white");
+      REQUIRE(piece.colorNames["back"] == "orange");
+      REQUIRE(piece.colorNames["top"] == "green");
+
+      piece.rotate(bMove);
+      piece.rotate(bMove);
+      piece.rotate(bMove);
+      REQUIRE(piece.colors == piece.original_colors);
+    }
   }
 
   WHEN("rotating on the 3 axis (top right corner)") {
@@ -268,15 +326,15 @@ SCENARIO("PieceColors", "[PieceColors]") {
       PieceColors piece(vec3(2, 2, 0), vec3(3, 3, 3));
       Move fMove("f");
       Move rMove("r");
-      Move tMove("t");
-      Move tPrimeMove("t'");
+      Move uMove("u");
+      Move uPrimeMove("u'");
 
       REQUIRE(piece.colors == piece.original_colors);
 
       map<string, vec3> previous_colors = piece.colors;
 
       piece.rotate(rMove);
-      piece.rotate(tMove);
+      piece.rotate(uMove);
       piece.rotate(fMove);
       REQUIRE(piece.colorNames["bottom"] == "yellow");
       REQUIRE(piece.colorNames["right"] == "red");
@@ -293,7 +351,7 @@ SCENARIO("PieceColors", "[PieceColors]") {
       REQUIRE(piece.colorNames["front"] == "yellow");
 
       piece.rotate(rMove);
-      piece.rotate(tPrimeMove);
+      piece.rotate(uPrimeMove);
       REQUIRE(piece.colorNames["back"] == "green");
       REQUIRE(piece.colorNames["right"] == "red");
       REQUIRE(piece.colorNames["top"] == "yellow");

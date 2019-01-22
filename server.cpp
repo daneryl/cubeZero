@@ -9,6 +9,9 @@
 #include "src/OpenGL.hpp"
 #include "src/controls.hpp"
 #include "src/puzzle.hpp"
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 #define GLSL(src) #src
 
@@ -45,10 +48,15 @@ int main(void) {
 
     if (item.revents & ZMQ_POLLIN) {
       socket.recv(&request);
-      /* std::cout << "Received request: [" << (char*) request.data() << "]" << std::endl; */
-      rubik.move((char*) request.data());
-      zmq::message_t reply (5);
-      memcpy (reply.data (), "World", 5);
+      std::cout << "Received request: [" << std::string(static_cast<char*>(request.data()), request.size()) << "]" << std::endl;
+      rubik.move(std::string(static_cast<char*>(request.data()), request.size()));
+      map<string, vector<vector<string>>> state = rubik.state();
+
+      json j_map(state);
+      string jsonState = j_map.dump();
+      /* cout << jsonState << "\n\n"; */
+      zmq::message_t reply (jsonState.size());
+      memcpy (reply.data (), jsonState.c_str(), jsonState.size());
       socket.send (reply);
       //  Process task
     }

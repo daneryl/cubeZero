@@ -1,36 +1,211 @@
 #define private public
 
 #include "../src/puzzle.hpp"
-//#include "../src/cube.hpp"
-//#include "../src/PieceColors.hpp"
-//#include "../src/CubeVertexInfo.hpp"
 #include "glm/ext.hpp"
 #include "catch.hpp"
 #include <GL/glew.h>
-//#include "fakeit.hpp"
 
-
-//using namespace fakeit;
-//using namespace constants;
 
 SCENARIO("Puzzle", "[Puzzle]") {
   GIVEN("Given PiecePosition and maxPieces") {
-    WHEN("piece its in the front") {
+    THEN("should build a 27 pieces puzzle") {
+      Puzzle rubik = Puzzle(3, 3, 3);
+      REQUIRE(rubik.pieces.size() == 27);
+    }
+  }
 
-      THEN("front colors should be set and all other colors should be black") {
-        Puzzle rubik = Puzzle(3, 3, 3);
+  WHEN("state") {
+    GIVEN("initial state") {
+      THEN("should return a map with all faces colors") {
+        Puzzle puzzle = Puzzle(3, 3, 3);
+        map<string, vector<vector<string>>> state = puzzle.state();
 
-        //cout << rubik.cubes.size() << std::endl;
-        REQUIRE(rubik.cubes.size() == 27);
+        vector<vector<string>> expectedFront = {
+          {"red", "red", "red"},
+          {"red", "red", "red"},
+          {"red", "red", "red"}
+        };
 
-        //Mock<Puzzle> mock;
-      //SomeClass& i = spy.get();
-        //REQUIRE(to_string(piece.colors["front"]) == to_string(side_colors["front"]));
-        //REQUIRE(to_string(piece.colors["bottom"]) == to_string(base_side_colors["bottom"]));
-        //REQUIRE(to_string(piece.colors["top"]) == to_string(base_side_colors["top"]));
-        //REQUIRE(to_string(piece.colors["left"]) == to_string(base_side_colors["left"]));
-        //REQUIRE(to_string(piece.colors["right"]) == to_string(base_side_colors["right"]));
-        //REQUIRE(to_string(piece.colors["back"]) == to_string(base_side_colors["back"]));
+        REQUIRE(state["front"] == expectedFront);
+
+        vector<vector<string>> expectedBack = {
+          {"orange", "orange", "orange"},
+          {"orange", "orange", "orange"},
+          {"orange", "orange", "orange"}
+        };
+
+        REQUIRE(state["back"] == expectedBack);
+
+        vector<vector<string>> expectRight = {
+          {"green", "green", "green"},
+          {"green", "green", "green"},
+          {"green", "green", "green"}
+        };
+
+        REQUIRE(state["right"] == expectRight);
+
+        vector<vector<string>> expectLeft = {
+          {"blue", "blue", "blue"},
+          {"blue", "blue", "blue"},
+          {"blue", "blue", "blue"}
+        };
+
+        REQUIRE(state["left"] == expectLeft);
+
+        vector<vector<string>> expectTop = {
+          {"yellow", "yellow", "yellow"},
+          {"yellow", "yellow", "yellow"},
+          {"yellow", "yellow", "yellow"}
+        };
+
+        REQUIRE(state["top"] == expectTop);
+
+        vector<vector<string>> expectBottom = {
+          {"white", "white", "white"},
+          {"white", "white", "white"},
+          {"white", "white", "white"}
+        };
+
+        REQUIRE(state["bottom"] == expectBottom);
+      }
+    }
+    
+    GIVEN("r Move") {
+      THEN("should return a map with right faces rotated") {
+        Puzzle puzzle = Puzzle(3, 3, 3);
+        puzzle.move("r");
+
+        map<string, vector<vector<string>>> state = puzzle.state();
+        vector<vector<string>> expectedFront = {
+          {"red", "red", "white"},
+          {"red", "red", "white"},
+          {"red", "red", "white"}
+        };
+
+        REQUIRE(state["front"] == expectedFront);
+
+        vector<vector<string>> expectedBack = {
+          {"yellow", "orange", "orange"},
+          {"yellow", "orange", "orange"},
+          {"yellow", "orange", "orange"}
+        };
+
+        REQUIRE(state["back"] == expectedBack);
+
+        vector<vector<string>> expectedTop = {
+          {"yellow", "yellow", "red"},
+          {"yellow", "yellow", "red"},
+          {"yellow", "yellow", "red"}
+        };
+
+        REQUIRE(state["top"] == expectedTop);
+
+        vector<vector<string>> expectBottom = {
+          {"white", "white", "orange"},
+          {"white", "white", "orange"},
+          {"white", "white", "orange"}
+        };
+
+        REQUIRE(state["bottom"] == expectBottom);
+      }
+    }
+
+    GIVEN("f Move") {
+      THEN("should return a map with right faces rotated") {
+        Puzzle puzzle = Puzzle(3, 3, 3);
+        puzzle.move("f");
+
+        map<string, vector<vector<string>>> state = puzzle.state();
+        vector<vector<string>> expectedTop = {
+          {"yellow", "yellow", "yellow"},
+          {"yellow", "yellow", "yellow"},
+          {"blue", "blue", "blue"},
+        };
+
+        REQUIRE(state["top"] == expectedTop);
+
+        vector<vector<string>> expectLeft = {
+          {"blue", "blue", "white"},
+          {"blue", "blue", "white"},
+          {"blue", "blue", "white"},
+        };
+
+        REQUIRE(state["left"] == expectLeft);
+
+        vector<vector<string>> expectRight = {
+          {"yellow", "green", "green"},
+          {"yellow", "green", "green"},
+          {"yellow", "green", "green"},
+        };
+
+        REQUIRE(state["right"] == expectRight);
+
+        vector<vector<string>> expectBottom = {
+          {"green", "green", "green"},
+          {"white", "white", "white"},
+          {"white", "white", "white"},
+        };
+
+        REQUIRE(state["bottom"] == expectBottom);
+      }
+    }
+
+    GIVEN("a combination of movements") {
+      THEN("should return a map with right faces rotated") {
+        Puzzle puzzle = Puzzle(3, 3, 3);
+        puzzle.move("f");
+        puzzle.move("r");
+        puzzle.move("u");
+        puzzle.move("f'");
+
+        /* map<string, vector<vector<string>>> state = puzzle.state(); */
+        /* vector<vector<string>> expectedTop = { */
+        /*   {"blue", "yellow", "yellow"}, */
+        /*   {"blue", "yellow", "yellow"}, */
+        /*   {"blue", "green", "green"}, */
+        /* }; */
+
+        /* REQUIRE(state["top"] == expectedTop); */
+
+        /* vector<vector<string>> expectFront = { */
+        /*   {"yellow", "white", "white"}, */
+        /*   {"yellow", "red", "red"}, */
+        /*   {"yellow", "red", "red"}, */
+        /* }; */
+
+        /* REQUIRE(state["front"] == expectFront); */
+
+        /* vector<vector<string>> expectRight = { */
+        /*   {"orange", "orange", "orange"}, */
+        /*   {"green", "green", "green"}, */
+        /*   {"green", "green", "green"}, */
+        /* }; */
+
+        /* REQUIRE(state["right"] == expectRight); */
+
+        /* vector<vector<string>> expectLeft = { */
+        /*   {"red", "red", "green"}, */
+        /*   {"blue", "blue", "white"}, */
+        /*   {"blue", "blue", "white"}, */
+        /* }; */
+
+        /* REQUIRE(state["left"] == expectLeft); */
+
+        /* vector<vector<string>> expectBottom = { */
+        /*   {"green", "green", "orange"}, */
+        /*   {"white", "white", "orange"}, */
+        /*   {"white", "white", "orange"}, */
+        /* }; */
+
+        /* REQUIRE(state["bottom"] == expectBottom); */
+
+        /* vector<vector<string>> expectBack = { */
+        /*   {"blue", "blue", "white"}, */
+        /*   {"yellow", "orange", "orange"}, */
+        /*   {"yellow", "orange", "orange"}, */
+        /* }; */
+
+        /* REQUIRE(state["back"] == expectBack); */
       }
     }
   }

@@ -70,7 +70,9 @@ class PieceColors {
 
       if (move.angle == 90.0f) {
         colors["front"] = previous_colors["top"];
+        colors["top"] = previous_colors["back"];
         colors["bottom"] = previous_colors["front"];
+        colors["back"] = previous_colors["bottom"];
       }
     }
 
@@ -82,6 +84,8 @@ class PieceColors {
       if (move.angle == 90.0f) {
         colors["back"] = previous_colors["right"];
         colors["right"] = previous_colors["front"];
+        colors["left"] = previous_colors["back"];
+        colors["front"] = previous_colors["left"];
       }
     }
 
@@ -91,8 +95,10 @@ class PieceColors {
       colors["left"] = previous_colors["bottom"];
       colors["top"] = previous_colors["left"];
       if (move.angle == 90.0f) {
+        colors["bottom"] = previous_colors["left"];
         colors["top"] = previous_colors["right"];
         colors["left"] = previous_colors["top"];
+        colors["right"] = previous_colors["bottom"];
       }
     }
 

@@ -42,16 +42,16 @@ SCENARIO("Move", "[Move]") {
   }
 
   WHEN("y axis") {
-    THEN("t should initialize move properties as y axis, position2, angle -90") {
-      Move move("t");
+    THEN("u should initialize move properties as y axis, position2, angle -90") {
+      Move move("u");
 
       REQUIRE(glm::to_string(move.axisVector) == glm::to_string(vec3(0, 1, 0)));
       REQUIRE(move.axisPosition == 2);
       REQUIRE(move.axis == 1);
       REQUIRE(move.angle == -90.0);
     }
-    THEN("t' should initialize move properties as y axis, position2, angle 90") {
-      Move move("t'");
+    THEN("u' should initialize move properties as y axis, position2, angle 90") {
+      Move move("u'");
 
       REQUIRE(glm::to_string(move.axisVector) == glm::to_string(vec3(0, 1, 0)));
       REQUIRE(move.axisPosition == 2);
@@ -59,21 +59,21 @@ SCENARIO("Move", "[Move]") {
       REQUIRE(move.angle == 90.0);
     }
 
-    THEN("d should initialize move properties as y axis, position0, angle -90") {
+    THEN("d should initialize move properties as y axis, position0, angle 90") {
       Move move("d");
 
       REQUIRE(glm::to_string(move.axisVector) == glm::to_string(vec3(0, 1, 0)));
       REQUIRE(move.axisPosition == 0);
       REQUIRE(move.axis == 1);
-      REQUIRE(move.angle == -90.0);
+      REQUIRE(move.angle == 90.0);
     }
-    THEN("d' should initialize move properties as y axis, position0, angle 90") {
+    THEN("d' should initialize move properties as y axis, position0, angle -90") {
       Move move("d'");
 
       REQUIRE(glm::to_string(move.axisVector) == glm::to_string(vec3(0, 1, 0)));
       REQUIRE(move.axisPosition == 0);
       REQUIRE(move.axis == 1);
-      REQUIRE(move.angle == 90.0);
+      REQUIRE(move.angle == -90.0);
     }
   }
 
@@ -94,21 +94,21 @@ SCENARIO("Move", "[Move]") {
       REQUIRE(move.axisPosition == 0);
       REQUIRE(move.angle == 90.0);
     }
-    THEN("b should initialize move properties as z axis, position -2, angle -90") {
+    THEN("b should initialize move properties as z axis, position -2, angle 90") {
       Move move("b");
 
       REQUIRE(glm::to_string(move.axisVector) == glm::to_string(vec3(0, 0, 1)));
       REQUIRE(move.axis == 2);
       REQUIRE(move.axisPosition == -2);
-      REQUIRE(move.angle == -90.0);
+      REQUIRE(move.angle == 90.0);
     }
-    THEN("b' should initialize move properties as z axis, position -2, angle 90") {
+    THEN("b' should initialize move properties as z axis, position -2, angle -90") {
       Move move("b'");
 
       REQUIRE(glm::to_string(move.axisVector) == glm::to_string(vec3(0, 0, 1)));
       REQUIRE(move.axis == 2);
       REQUIRE(move.axisPosition == -2);
-      REQUIRE(move.angle == 90.0);
+      REQUIRE(move.angle == -90.0);
     }
   }
 }

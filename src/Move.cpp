@@ -13,10 +13,11 @@ Move::Move(string move) {
   if (move[0] == 'b') {
     axisVector = vec3(0, 0, 1);
     axisPosition = -2;
+    angle = 90.0;
     axis = 2;
   }
 
-  if (move[0] == 't') {
+  if (move[0] == 'u') {
     axisVector = vec3(0, 1, 0);
     axisPosition = 2;
     axis = 1;
@@ -25,6 +26,7 @@ Move::Move(string move) {
   if (move[0] == 'd') {
     axisVector = vec3(0, 1, 0);
     axisPosition = 0;
+    angle = 90.0;
     axis = 1;
   }
 
