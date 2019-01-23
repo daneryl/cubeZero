@@ -83,8 +83,21 @@ void OpenGL::bindVAO(GLuint VAO) {
   glBindVertexArray(VAO);
 }
 
-void OpenGL::generateVAO(GLuint *VAO) {
+void OpenGL::generateVAO(GLuint *VAO, vector<vec3> vertex_positions, vector<vec3> vertex_colors ) {
   glGenVertexArrays(1, VAO);
+  OpenGL::bindVAO(*VAO);
+
+  OpenGL::bindBufferData(1, vertex_colors);
+  OpenGL::bindBufferData(0, vertex_positions);
+
+  OpenGL::bindVAO(0);
+}
+
+void OpenGL::draw(GLuint VAO, mat4 MVP) {
+  OpenGL::uniformMatrix(MVP);
+  OpenGL::bindVAO(VAO);
+  glDrawArrays(GL_TRIANGLES, 0, 12 * 3);
+  OpenGL::bindVAO(0);
 }
 
 void OpenGL::bindBufferData(GLuint index, vector<vec3> data) {

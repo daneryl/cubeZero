@@ -14,11 +14,11 @@
 #include <vector>
 
 #include "PieceColors.hpp"
-#include "cube.hpp"
+#include "Piece.hpp"
 
 class Puzzle {
  private:
-  std::vector<Cube> pieces;
+  std::vector<Piece> pieces;
   int x;
   int y;
   int z;
@@ -32,8 +32,7 @@ class Puzzle {
     for (int x = 0; x < numX; ++x) {
       for (int y = 0; y < numY; ++y) {
         for (int z = 0; z > -numZ; --z) {
-          PieceColors piece(vec3(x, y, z), vec3(numX, numY, numZ));
-          pieces.push_back(Cube(vec3(x, y, z), piece));
+          pieces.push_back(Piece(vec3(x, y, z), vec3(numX, numY, numZ)));
         }
       }
     }
@@ -42,17 +41,13 @@ class Puzzle {
   void move(string movement) {
     Move move(movement);
     for (auto&& cube : pieces) {
-      if (cube.position[move.axis] == move.axisPosition) {
-        cube.orientation = glm::normalize(glm::angleAxis(glm::radians(move.angle), move.axisVector) * cube.orientation);
-        cube.rotate(move);
-      }
+      cube.rotate(move);
     }
   }
 
   void draw(mat4 Projection, mat4 View) {
     for (auto&& cube : pieces) {
-      mat4 translation = glm::translate(glm::vec3(cube.position.x * 2.1, cube.position.y * 2.1, cube.position.z * 2.1));
-      cube.draw(Projection * View * translation * glm::mat4_cast(cube.orientation));
+      cube.draw(Projection * View);
     }
   }
 

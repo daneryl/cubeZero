@@ -25,5 +25,6 @@ class Position {
    int z;
    vec3 puzzleSize;
    void rotate(Move move);
+   int get(int axis);
 };
 #endif

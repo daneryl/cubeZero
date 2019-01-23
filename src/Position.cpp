@@ -33,3 +33,15 @@ void Position::rotate(Move move) {
   y = (int)glm::floor(position.y * 5 + 0.5) / 5;
   z = (int)glm::floor(position.z * 5 + 0.5) / 5;
 }
+
+int Position::get(int axis) {
+  if (axis == 0) {
+    return x;
+  }
+
+  if (axis == 1) {
+    return y;
+  }
+
+  return z;
+}

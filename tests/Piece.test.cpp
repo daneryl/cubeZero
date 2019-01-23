@@ -23,14 +23,14 @@ SCENARIO("Piece", "[Piece]") {
 
   WHEN("rotate") {
     THEN("should rotate position") {
-      vec3 position = vec3(0, 0, 0);
+      vec3 position = vec3(2, 0, 0);
       vec3 puzzleSize = vec3(3,3,3);
       Move rMove("r");
 
       Piece piece(position, puzzleSize);
 
       piece.rotate(rMove);
-      REQUIRE(piece.position.x == 0);
+      REQUIRE(piece.position.x == 2);
       REQUIRE(piece.position.y == 2);
       REQUIRE(piece.position.z == 0);
     }

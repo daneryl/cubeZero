@@ -3,4 +3,5 @@ build/*
 xcode/
 *.gch
 *.gch*
+venv
 

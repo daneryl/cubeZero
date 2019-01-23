@@ -158,20 +158,20 @@ SCENARIO("Puzzle", "[Puzzle]") {
         puzzle.move("u");
         puzzle.move("f'");
 
-        /* map<string, vector<vector<string>>> state = puzzle.state(); */
-        /* vector<vector<string>> expectedTop = { */
-        /*   {"blue", "yellow", "yellow"}, */
-        /*   {"blue", "yellow", "yellow"}, */
-        /*   {"blue", "green", "green"}, */
-        /* }; */
+        map<string, vector<vector<string>>> state = puzzle.state();
+        vector<vector<string>> expectedTop = {
+          {"blue", "yellow", "yellow"},
+          {"blue", "yellow", "yellow"},
+          {"blue", "green", "green"},
+        };
 
-        /* REQUIRE(state["top"] == expectedTop); */
+        REQUIRE(state["top"] == expectedTop);
 
-        /* vector<vector<string>> expectFront = { */
-        /*   {"yellow", "white", "white"}, */
-        /*   {"yellow", "red", "red"}, */
-        /*   {"yellow", "red", "red"}, */
-        /* }; */
+        vector<vector<string>> expectFront = {
+          {"yellow", "white", "white"},
+          {"yellow", "red", "red"},
+          {"yellow", "red", "red"},
+        };
 
         /* REQUIRE(state["front"] == expectFront); */
 
