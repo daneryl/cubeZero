@@ -26,7 +26,7 @@ int main(void) {
   GLFWwindow *window = OpenGL::window;
   GLuint programID = OpenGL::program;
 
-  printf("OpenGL version supported by this platform (%s): \n", glGetString(GL_VERSION));
+  /* printf("OpenGL version supported by this platform (%s): \n", glGetString(GL_VERSION)); */
 
   Puzzle rubik = Puzzle(3, 3, 3);
 
@@ -36,14 +36,14 @@ int main(void) {
     zmq::poll (&item, 1, 15);
 
     //
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    OpenGL::clear();
     computeMatricesFromInputs(window);
     glm::mat4 Projection = getProjectionMatrix();
     glm::mat4 View = getViewMatrix();
 
     rubik.draw(Projection, View);
 
-    glfwSwapBuffers(window);
+    OpenGL::swapBuffers();
     glfwPollEvents();
 
     if (item.revents & ZMQ_POLLIN) {
@@ -62,9 +62,9 @@ int main(void) {
     }
 
   }  // Check if the ESC key was pressed or the window was closed
-  while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
+  while (1);
 
-  glDeleteProgram(programID);
+  /* glDeleteProgram(programID); */
 
   glfwTerminate();
 

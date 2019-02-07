@@ -43,7 +43,7 @@ void OpenGL::init() {
   // To make MacOS happy; should not be needed
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-  OpenGL::window = glfwCreateWindow(1024, 768, "Tutorial 02 - Red triangle", NULL, NULL);
+  OpenGL::window = glfwCreateWindow(400, 400, "Tutorial 02 - Red triangle", NULL, NULL);
   if (OpenGL::window == NULL) {
     fprintf(stderr,
             "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of "
@@ -107,4 +107,16 @@ void OpenGL::bindBufferData(GLuint index, vector<vec3> data) {
   glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(vec3), data.data(), GL_STATIC_DRAW);
   glEnableVertexAttribArray(index);
   glVertexAttribPointer(index, 3, GL_FLOAT, GL_FALSE, 0, (void *)0);
+}
+
+void OpenGL::clear() {
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void OpenGL::swapBuffers() {
+  glfwSwapBuffers(OpenGL::window);
+}
+
+void OpenGL::getCursorPosition(double *x, double *y) {
+  glfwGetCursorPos(OpenGL::window, x, y);
 }

@@ -54,35 +54,12 @@ class Puzzle {
   map<string, vector<vector<string>>> state() {
     map<string, vector<vector<string>>> state;
 
-    state["front"] = vector<vector<string>>();
-    state["front"].push_back({ "string", "string", "string" });
-    state["front"].push_back({ "string", "string", "string" });
-    state["front"].push_back({ "string", "string", "string" });
-
-    state["back"] = vector<vector<string>>();
-    state["back"].push_back({ "string", "string", "string" });
-    state["back"].push_back({ "string", "string", "string" });
-    state["back"].push_back({ "string", "string", "string" });
-
-    state["top"] = vector<vector<string>>();
-    state["top"].push_back({ "string", "string", "string" });
-    state["top"].push_back({ "string", "string", "string" });
-    state["top"].push_back({ "string", "string", "string" });
-
-    state["bottom"] = vector<vector<string>>();
-    state["bottom"].push_back({ "string", "string", "string" });
-    state["bottom"].push_back({ "string", "string", "string" });
-    state["bottom"].push_back({ "string", "string", "string" });
-
-    state["left"] = vector<vector<string>>();
-    state["left"].push_back({ "string", "string", "string" });
-    state["left"].push_back({ "string", "string", "string" });
-    state["left"].push_back({ "string", "string", "string" });
-
-    state["right"] = vector<vector<string>>();
-    state["right"].push_back({ "string", "string", "string" });
-    state["right"].push_back({ "string", "string", "string" });
-    state["right"].push_back({ "string", "string", "string" });
+    for (auto side : COLOR_ORDER) {
+      state[side] = vector<vector<string>>();
+      state[side].push_back({ "", "", "" });
+      state[side].push_back({ "", "", "" });
+      state[side].push_back({ "", "", "" });
+    }
 
     for (auto&& piece : pieces) {
       if (piece.position.z == 0) {

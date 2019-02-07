@@ -26,9 +26,13 @@ include_directories(
 
 file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB OPEN_GL ${PROJECT_SOURCE_DIR}/src/OpenGL/OpenGL.cpp)
+file(GLOB MOCK_OPEN_GL ${PROJECT_SOURCE_DIR}/src/OpenGL/OpenGLMock.cpp)
 
 add_executable(server server.cpp ${OPEN_GL} ${SRC_FILES})
 target_link_libraries(server glfw cppzmq nlohmann_json::nlohmann_json ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
+
+add_executable(headlessServer server.cpp ${MOCK_OPEN_GL} ${SRC_FILES})
+target_link_libraries(headlessServer glfw cppzmq nlohmann_json::nlohmann_json ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 
 add_executable(cubeZero main.cpp ${OPEN_GL} ${SRC_FILES})
 target_link_libraries(cubeZero glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
@@ -41,7 +45,6 @@ if(BUILD_TESTS)
   target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 
   file(GLOB_RECURSE TEST_FILES ${PROJECT_SOURCE_DIR}/tests/*.cpp)
-  file(GLOB MOCK_OPEN_GL ${PROJECT_SOURCE_DIR}/src/OpenGL/OpenGLMock.cpp)
   add_executable(tests ${MOCK_OPEN_GL} ${TEST_FILES} ${SRC_FILES})
   target_link_libraries(tests Catch glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 endif()

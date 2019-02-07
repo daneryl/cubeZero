@@ -22,5 +22,8 @@ class OpenGL {
   static void draw(GLuint VAO, mat4 mvp);
   static void generateVAO(GLuint *VAO, vector<vec3> vertex_positions, vector<vec3> vertex_colors );
   static void bindBufferData(GLuint index, vector<vec3> data);
+  static void clear();
+  static void swapBuffers();
+  static void getCursorPosition(double *x, double *y);
 };
 #endif

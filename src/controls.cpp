@@ -1,4 +1,5 @@
 // Include GLFW
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,6 +11,7 @@
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "./OpenGL.hpp"
 //#include "external/glm/glm/glm.hpp"
 //#include "external/glm/gtc/matrix_transform.hpp"
 using namespace glm;
@@ -42,7 +44,7 @@ void computeMatricesFromInputs(GLFWwindow* window) {
 
   // Get mouse position
   double x, y;
-  glfwGetCursorPos(window, &x, &y);
+  OpenGL::getCursorPosition(&x, &y);
 
   float FoV = initialFoV;  // - 5 * glfwGetMouseWheel(); // Now GLFW 3 requires
                            // setting up a callback for this. It's a bit too
