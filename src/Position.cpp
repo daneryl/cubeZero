@@ -24,7 +24,9 @@ void Position::rotate(Move move) {
   vec3 position = vec3(x, y, z);
 
   glm::mat4 rotationMat(1); // Creates a identity matrix
+
   position += vec3(-axisTranslation, -axisTranslation , axisTranslation);
+
   rotationMat = glm::rotate(rotationMat, glm::radians(move.angle), move.axisVector);
   position = glm::vec3(rotationMat * glm::vec4(position, 1.0));
   position += glm::round(vec3(axisTranslation, axisTranslation , -axisTranslation));

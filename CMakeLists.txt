@@ -31,7 +31,7 @@ file(GLOB MOCK_OPEN_GL ${PROJECT_SOURCE_DIR}/src/OpenGL/OpenGLMock.cpp)
 add_executable(server server.cpp ${OPEN_GL} ${SRC_FILES})
 target_link_libraries(server glfw cppzmq nlohmann_json::nlohmann_json ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 
-add_executable(headlessServer server.cpp ${MOCK_OPEN_GL} ${SRC_FILES})
+add_executable(headlessServer headlessServer.cpp ${MOCK_OPEN_GL} ${SRC_FILES})
 target_link_libraries(headlessServer glfw cppzmq nlohmann_json::nlohmann_json ${GLFW_LIBRARIES} ${OPENGL_LIBRARIES} ${GLEW_LIBRARY})
 
 add_executable(cubeZero main.cpp ${OPEN_GL} ${SRC_FILES})

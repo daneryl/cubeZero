@@ -53,10 +53,10 @@ void computeMatricesFromInputs(GLFWwindow* window) {
 
   ProjectionMatrix = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 300.0f);
 
-  float radius = 30.0f;
-  float X = sin(theta) * radius;
-  float Z = cos(theta) * radius;
-  float Y = 14;
+  /* float radius = 30.0f; */
+  float X = 5;
+  float Z = 15;
+  float Y = 5;
 
   ViewMatrix = glm::lookAt(glm::vec3(X, Y, Z), glm::vec3(0.0f, 0.0f, 0.0f),
                            glm::vec3(0, 1, 0));
